@@ -1,5 +1,6 @@
 Router.configure({
-    layoutTemplate: 'main'
+    layoutTemplate: 'main',
+    notFoundTemplate : '404'
 });
 
 if (Meteor.isClient) {
