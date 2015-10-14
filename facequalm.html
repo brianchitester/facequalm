@@ -1,14 +1,22 @@
 <head>
   <title>facequalm</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Welcome to FaceQualm!</h1>
 
-  {{> hello}}
+  <div id="fileInput">
+    <input type="file" accept="image/x-png, image/gif, image/jpeg"/>
+  </div>
+
+  {{> camera}}
+
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name = "camera">
+	<video id="video" width="640" height="480" autoplay></video>
+	<button id="snap">Snap Photo</button>
+	<canvas id="canvas" width="640" height="480"></canvas>
 </template>
