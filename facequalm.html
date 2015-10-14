@@ -7,21 +7,37 @@
 <body>
   <h1>Welcome to FaceQualm!</h1>
 
-  <div id="fileInput">
-    <input type="file" accept="image/x-png, image/gif, image/jpeg"/>
-  </div>
+  {{> newGame}}
+
+  {{#each imagesToMatch}}
+  	{{> imageToMatch}}
+  {{/each}}
 
   {{> camera}}
 
   {{#each storedImages}}
   	{{> storedImage}}
   {{/each}}
-
 </body>
 
 
+<template name = "newGame">
+	<div>
+		<button class="new-game-button">Start New Game</button>
+	</div>
+</template>
+
+<template name ="imageToMatch">
+	<div>
+		<img src="{{url}}">
+	</div>
+</template>
+
 <template name = "storedImage">
-	<img src="{{imageSource}}">
+	<div>
+		<img src="{{imageSource}}">
+		<button data-id="{{_id}}" class="vote-button">Vote for this picture. NumVotes: {{numVotes}}</button>
+	</div>
 </template>
 
 <template name = "camera">
