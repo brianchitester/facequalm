@@ -13,12 +13,11 @@ Router.onBeforeAction(function() {
 
 // c+s
 Images = new Mongo.Collection("images");
-ImagesToMatch = new Mongo.Collection("imagesToMatch");
+Games = new Mongo.Collection("games");
 
 if (Meteor.isClient) {
-    // counter starts at 0
     Template.main.helpers({
-        signedInAs : function() {
+        signedInAs: function() {
             var user = Meteor.user();
 
             if (user) {

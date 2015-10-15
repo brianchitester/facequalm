@@ -1,11 +1,24 @@
 <template name="upload">
-  <h1>Welcome to FaceQualm!</h1>
+
+  <h2>Users playing:</h2>
+  {{#each users}}
+  	<li>{{this}}</li>
+  {{/each}}
+
+  <br/>
+  <br/>
 
   {{> newGame}}
+  <br/>
+  <a href="{{pathFor route='home'}}">Return to Lobby</a>
 
-  {{#each imagesToMatch}}
-    {{> imageToMatch}}
-  {{/each}}
+
+  <br/>
+  <br/>
+
+  <div>
+    <img src="{{matchUrl}}">
+  </div>
 
   {{> camera}}
 
@@ -20,14 +33,9 @@
 	</div>
 </template>
 
-<template name ="imageToMatch">
-	<div>
-		<img src="{{url}}">
-	</div>
-</template>
-
 <template name = "storedImage">
 	<div>
+    <h3>Creator: {{creator}}</h3>
 		<img src="{{imageSource}}">
 		<button data-id="{{_id}}" class="vote-button">Vote for this picture. NumVotes: {{numVotes}}</button>
 	</div>

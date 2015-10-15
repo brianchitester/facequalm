@@ -1,4 +1,11 @@
 <template name="home">
-	 <a href="{{pathFor route='upload'}}">Game</a>
+	 <h3>Current Games</h3>
+	 {{#each games}}
+	 	<li>{{this}}</li>
+	 {{/each}}
+	 <br/>
+	 <br/>
+	 <button>Create Game</button>
 </template>
+
 
