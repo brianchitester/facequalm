@@ -3,6 +3,10 @@ Router.configure({
     notFoundTemplate : '404'
 });
 
+// c+s
+Images = new Mongo.Collection("images");
+ImagesToMatch = new Mongo.Collection("imagesToMatch");
+
 if (Meteor.isClient) {
     // counter starts at 0
     Session.setDefault('counter', 0);
