@@ -11,6 +11,10 @@ Router.onBeforeAction(function() {
     }
 });
 
+// c+s
+Images = new Mongo.Collection("images");
+ImagesToMatch = new Mongo.Collection("imagesToMatch");
+
 if (Meteor.isClient) {
     // counter starts at 0
     Template.main.helpers({
