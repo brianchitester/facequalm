@@ -1,20 +1,20 @@
+<template name="upload">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <h1>Welcome to FaceQualm!</h1>
 
-<h1>Welcome to FaceQualm!</h1>
+  {{> newGame}}
 
-{{> newGame}}
+  {{#each imagesToMatch}}
+    {{> imageToMatch}}
+  {{/each}}
 
-{{#each imagesToMatch}}
-  {{> imageToMatch}}
-{{/each}}
+  {{> camera}}
 
-{{> camera}}
-
-{{#each storedImages}}
-  {{> storedImage}}
-{{/each}}
-
+  {{#each storedImages}}
+    {{> storedImage}}
+  {{/each}}
+</template>
 
 <template name = "newGame">
 	<div>
@@ -39,3 +39,4 @@
 	<video id="video" width="640" height="480" autoplay></video>
 	<button id="snap">Snap Photo</button>
 	<canvas id="canvas" width="320" height="240" style= "display:none;"></canvas>
+</template>
