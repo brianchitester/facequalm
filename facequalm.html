@@ -1,5 +1,11 @@
 <template name="main">
+    <header>
     <h1>FaceQualm</h1>
+    {{#if signedInAs}}
+	    {{signedInAs}}
+	    {{> atNavButton}}
+    {{/if}}
+    </header>
     {{> yield}}
     <hr />
     <p>Copyright &copy; FaceQualm, 2014-2015.</p>
