@@ -1,47 +1,6 @@
-<head>
-  <title>facequalm</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-</head>
-
-<body>
-  <h1>Welcome to FaceQualm!</h1>
-
-  {{> newGame}}
-
-  {{#each imagesToMatch}}
-  	{{> imageToMatch}}
-  {{/each}}
-
-  {{> camera}}
-
-  {{#each storedImages}}
-  	{{> storedImage}}
-  {{/each}}
-</body>
-
-
-<template name = "newGame">
-	<div>
-		<button class="new-game-button">Start New Game</button>
-	</div>
-</template>
-
-<template name ="imageToMatch">
-	<div>
-		<img src="{{url}}">
-	</div>
-</template>
-
-<template name = "storedImage">
-	<div>
-		<img src="{{imageSource}}">
-		<button data-id="{{_id}}" class="vote-button">Vote for this picture. NumVotes: {{numVotes}}</button>
-	</div>
-</template>
-
-<template name = "camera">
-	<video id="video" width="640" height="480" autoplay></video>
-	<button id="snap">Snap Photo</button>
-	<canvas id="canvas" width="320" height="240" style= "display:none;"></canvas>
+<template name="main">
+    <h1>FaceQualm</h1>
+    {{> yield}}
+    <hr />
+    <p>Copyright &copy; FaceQualm, 2014-2015.</p>
 </template>
