@@ -1,9 +1,11 @@
 Template.upload.helpers({
   storedImages: function() {
-    return Images.find({});
+    var currentGame = Games.findOne({_id: Session.get('game')._id});
+    return currentGame.images;
   },
-  imagesToMatch: function() {
-    return ImagesToMatch.find({});
+  matchUrl: function() {
+    var currentGame = Games.findOne({_id: Session.get('game')._id});
+    return currentGame.currentImage;
   }
 });
 
@@ -42,12 +44,14 @@ Template.camera.events({
   'click button' : function() {
       context.drawImage(video, 0, 0, 320, 240);
       // This is the data URL:
-      Images.insert({
+      var currentGame = Games.findOne({_id: Session.get('game')._id});
+      currentGame.images.push({
         imageSource: canvas.toDataURL('image/png'),
         numVotes: 0,
-        createdAt: new Date()
+        createdAt: new Date(),
+        creator: Meteor.user().profile.name || Meteor.userId()
       });
-      console.log(canvas.toDataURL('image/png'))
+      Games.update({_id: currentGame._id}, currentGame);
   }
 });
 
@@ -68,10 +72,9 @@ Template.newGame.events({
     Meteor.call("clearImages");
     window.alert("New game has begun; you have EXACTLY one minute to take a selfie and vote on other peoples.");
     $.getJSON("http://uifaces.com/api/v1/random", function(data) {
-      Meteor.call("clearImagesToMatch");
-      ImagesToMatch.insert({
-        url: data.image_urls.epic
-      });
+      var currentGame = Games.findOne({_id: Session.get('game')._id});
+      currentGame.currentImage =  data.image_urls.epic;
+      Games.update({_id: currentGame._id}, currentGame);
     });
   }
 });
