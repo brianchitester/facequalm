@@ -19,7 +19,6 @@ if (Meteor.isClient) {
     Template.main.helpers({
         signedInAs: function() {
             var user = Meteor.user();
-
             if (user) {
                 if (user.username) {
                     return user.username;
@@ -32,11 +31,5 @@ if (Meteor.isClient) {
                 }
             }
         }
-    });
-}
-
-if (Meteor.isServer) {
-    Meteor.startup(function() {
-        // code to run on server at startup
     });
 }
