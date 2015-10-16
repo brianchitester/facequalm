@@ -1,10 +1,4 @@
     Template.home.helpers({
-        counter: function() {
-            return Session.get('counter');
-        }
-    });
-
-    Template.home.helpers({
         games: function() {
             return Games.find().fetch();
         }

@@ -1,4 +1,6 @@
 Meteor.startup(function() {
+    //Clear games on server start
+    Games.remove({});
 
     Meteor.publish("account", function() {
         var currentUser = this.userId;
@@ -48,14 +50,26 @@ Meteor.startup(function() {
                 images: []
             });
         },
-        joinGame: function() {
-
+        joinGame: function(id) {
+            var currentGame = Games.findOne({
+                _id: id,
+                users: {
+                    $nin: [this.userId]
+                }
+            });
+            if (currentGame) {
+                currentGame.users.push(this.userId);
+                Games.update({
+                    _id: id
+                }, currentGame);
+            }
         },
         newSession: function(id, faceUrl) {
             var currentGame = Games.findOne({
                 _id: id
             });
             currentGame.currentImage = faceUrl;
+            currentGame.images = [];
             Games.update({
                 _id: id
             }, currentGame);
