@@ -6,13 +6,14 @@
 
     Template.home.events({
         'click button': function() {
-            Meteor.call('createGame', Meteor.userId(), function(error, results) {
-                if (error) {
-                    console.log(error.reason)
-                } else {
-                    Router.go('/upload/' + results);
-                }
+            $.getJSON("http://uifaces.com/api/v1/random", function(data) {
+                Meteor.call('createGame', Meteor.userId(), data.image_urls.epic, function(error, results) {
+                    if (error) {
+                        console.log(error.reason)
+                    } else {
+                        Router.go('/upload/' + results);
+                    }
+                });
             });
-
         }
     });
