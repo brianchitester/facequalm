@@ -16,6 +16,8 @@
   <br/>
   <br/>
 
+  <h3>Round Number: {{roundNumber}}</h3>
+
   <div>
     <img src="{{matchUrl}}">
   </div>
@@ -35,9 +37,9 @@
 
 <template name = "storedImage">
 	<div>
-    <h3>Creator: {{creator}}</h3>
+    <h3>Creator: {{creatorId}}</h3>
 		<img src="{{imageSource}}">
-		<button data-id="{{_id}}" class="vote-button">Vote for this picture. NumVotes: {{numVotes}}</button>
+		<button data-id="{{_id}}" class="vote-button">Vote for this picture. NumVotes: {{voteCount}}</button>
 	</div>
 </template>
 
