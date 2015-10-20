@@ -31,7 +31,7 @@
 
 <template name = "newGame">
 	<div>
-		<button class="new-game-button">Start New Game</button>
+		<button class="btn btn-default new-game-button">Start New Game</button>
 	</div>
 </template>
 
@@ -39,10 +39,10 @@
 	<div>
     <h3>Creator: {{creatorId}}</h3>
 		<img src="{{imageSource}}">
-		<button data-id="{{_id}}" class="vote-button">Vote for this picture. NumVotes: {{voteCount}}</button>
+		<button data-id="{{_id}}" class="btn btn-default vote-button">Vote for this picture. NumVotes: {{voteCount}}</button>
 	</div>
 </template>
 
 <template name="photo">
-  <button id="snap">Snap Photo</button>
+  <button class="btn btn-default" id="snap">Snap Photo</button>
 </template>
