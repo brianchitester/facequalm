@@ -22,7 +22,7 @@
     <img src="{{matchUrl}}">
   </div>
 
-  {{> camera}}
+  {{> photo}}
 
   {{#each storedImages}}
     {{> storedImage}}
@@ -43,8 +43,6 @@
 	</div>
 </template>
 
-<template name = "camera">
-	<video id="video" width="640" height="480" autoplay></video>
-	<button id="snap">Snap Photo</button>
-	<canvas id="canvas" width="320" height="240" style= "display:none;"></canvas>
+<template name="photo">
+  <button id="snap">Snap Photo</button>
 </template>
