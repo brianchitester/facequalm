@@ -17,9 +17,16 @@ Template.profile.helpers({
 
 Template.profile.events({
     'click #password-reset': function(){
-        var oldp = $("#oldp").val();
-        var newp = $("#newp").val();
+        var oldp = $("#oldpassword").val();
+        var newp = $("#newpassword").val();
         Accounts.changePassword(oldp, newp);
+    },
+    'click #change-name': function(){
+        var name = $("#profilename").val();
+        Meteor.users.update(
+            {_id: Meteor.user()._id }, 
+            {$set:{"profile.name":name}}
+        );
     }
 });
 
