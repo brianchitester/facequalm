@@ -23,3 +23,6 @@ accounts-facebook
 accounts-base
 useraccounts:bootstrap
 useraccounts:core
+mdg:camera
+fourseven:scss
+andrei:iron-router-body-class

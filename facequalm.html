@@ -1,9 +1,13 @@
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+
 <template name="main">
     <header>
     <h1>FaceQualm</h1>
     {{#if signedInAs}}
-	    {{signedInAs}}
-	    {{> atNavButton}}
+        <a href="/profile">{{signedInAs}}</a>
+        {{> atNavButton}}
     {{/if}}
     </header>
     <hr />

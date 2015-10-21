@@ -36,45 +36,26 @@ Template.upload.helpers({
 
 var context, canvas;
 
-Template.camera.onRendered(function() {
-    canvas = $("#canvas")[0];
-    context = canvas.getContext("2d");
-    var video = $("#video")[0];
-
-    var videoObj = {
-        "video": true
-    };
-    var errBack = function(error) {
-        console.log("Video capture error: ", error.code);
-    };
-
-    if (navigator.getUserMedia) { // Standard
-        navigator.getUserMedia(videoObj, function(stream) {
-            video.src = stream;
-            video.play();
-        }, errBack);
-    } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
-        navigator.webkitGetUserMedia(videoObj, function(stream) {
-            video.src = window.URL.createObjectURL(stream);
-            video.play();
-        }, errBack);
-    } else if (navigator.mozGetUserMedia) { // Firefox-prefixed
-        navigator.mozGetUserMedia(videoObj, function(stream) {
-            video.src = window.URL.createObjectURL(stream);
-            video.play();
-        }, errBack);
-    }
-})
-
-Template.camera.events({
+Template.photo.events({
     'click button': function() {
-        var currentGame = Games.findOne();
-        var currentRound = Rounds.findOne({
-            gameId: currentGame._id,
-            roundNumber: currentGame.state
+        var cameraOptions = {
+            height: 240,
+            width: 320
+        };
+
+        MeteorCamera.getPicture(cameraOptions, function(error, data) {
+            if (!error) {
+                var currentGame = Games.findOne();
+                var currentRound = Rounds.findOne({
+                    gameId: currentGame._id,
+                    roundNumber: currentGame.state
+                });
+
+                Meteor.call('addImage', currentRound._id, data);
+            } else {
+                console.log(error);
+            }
         });
-        context.drawImage(video, 0, 0, 320, 240);
-        Meteor.call('addImage', currentRound._id, canvas.toDataURL('image/png'));
     }
 });
 
