@@ -26,3 +26,6 @@ useraccounts:core
 mdg:camera
 fourseven:scss
 andrei:iron-router-body-class
+meteoric:ionic-sass
+meteoric:ionicons-sass
+meteoric:ionic

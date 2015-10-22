@@ -1,11 +1,17 @@
 <template name="home">
+{{#contentFor "headerTitle"}}
+  <h1 class="title">Home</h1>
+{{/contentFor}}
+
+{{#ionView}}
+	{{#ionContent}}
 	 <h3>Current Games</h3>
 	 {{#each games}}
-	 	<li><a href="upload/{{_id}}">{{_id}}</a></li>
+	 	<li>{{_id}}</li>
 	 {{/each}}
 	 <br/>
 	 <br/>
-	 <button class="btn btn-default">Create Game</button>
+	 <button>Create Game</button>
+	 {{/ionContent}}
+{{/ionView}}
 </template>
-
-

@@ -3,6 +3,9 @@
 </head>
 
 <template name="main">
+{{#ionBody}}
+	{{> ionNavBar class="bar-calm"}}
+	{{#ionNavView}}
     <header>
     <h1>FaceQualm</h1>
     {{#if signedInAs}}
@@ -14,4 +17,6 @@
     {{> yield}}
     <hr />
     <p>Copyright &copy; FaceQualm, 2014-2015.</p>
+    {{/ionNavView}}
+{{/ionBody}}
 </template>
