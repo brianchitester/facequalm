@@ -1,49 +1,65 @@
 <template name="upload">
+{{#contentFor "headerTitle"}}
+  <h1 class="title">
+    <span class="header-logo-left"></span>
+    <span>Upload Your Image</span>
+  </h1>
+{{/contentFor}}
 
-  <h3>Round Number: {{roundNumber}}</h3>
+{{#contentFor "headerButtonLeft"}}
+  {{>ionNavBackButton class="btn-positive" path="home" text="Back"}}
+{{/contentFor}}
 
-  <div>
-    <img src="{{matchUrl}}">
-  </div>
-  <br/>
+{{#ionView}}
+  {{#ionContent}}
+    {{> profilelink}}
+    <h3>Round Number: {{roundNumber}}</h3>
 
-  {{> photo}}
+    <div>
+      <img src="{{matchUrl}}">
+    </div>
 
-  <hr/>
+    {{> photo}}
+      {{#each storedImages}}
+        {{> storedImage}}
+      {{/each}}
 
-  {{#each storedImages}}
-    {{> storedImage}}
-    <hr/>
-  {{/each}}
+      <h3>Users playing:</h3>
+      {{#each users}}
+        <li>{{this}}</li>
+      {{/each}}
 
-  <h3>Users playing:</h3>
-  {{#each users}}
-  	<li>{{this}}</li>
-    <hr/>
-  {{/each}}
+      {{> newGame}}
 
-  {{> newGame}}
-  <br/>
-  <a href="{{pathFor route='home'}}">Return to Lobby</a>
-
+   {{/ionContent}}
+{{/ionView}}
 </template>
 
 <template name = "newGame">
-	<div>
-		<button>Start New Round</button>
-	</div>
+		<button class="button button-block button-calm">Start New Round</button>
 </template>
 
 <template name = "storedImage">
-	<div>
-    <h3>Creator: {{creatorId}}</h3>
-		<img src="{{imageSource}}"> <br/> <br/>
-		<button data-id="{{_id}}" >Vote for this picture. NumVotes: {{voteCount}}</button>
-	</div>
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="{{imageSource}}">
+      <h2>Creator: </h2>
+      <p>{{creatorId}}</p>
+    </div>
+
+    <div class="item item-image">
+      <img src="{{imageSource}}">
+    </div>
+
+    <a data-id="{{_id}}" class="vote-button item item-icon-left" href="#">
+      <i class="icon ion-checkmark-round balanced"></i>
+      Vote for this picture. NumVotes: {{voteCount}}
+    </a>
+  </div>
 </template>
 
 <template name="photo">
 <a id="snap">
-  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 40 40"><path fill="#23439B" d="M6.8 8.163H38.63v22.615H6.8z"/><path fill="#FFF" d="M5.813 15.855H39.3v7.82H5.812z"/><circle fill="#FFF" cx="23.113" cy="19.765" r="7.419"/><circle fill="none" stroke="#23439B" stroke-miterlimit="10" cx="23.114" cy="19.766" r="5.505"/><circle fill="#23439B" cx="23.114" cy="19.766" r="3.911"/><path fill="#23439B" d="M8.56 27.178c0 2.67-1.285 2.205-2.87 2.205-1.584 0-2.868.507-2.868-2.162V7.327c0-2.67 1.284-2.32 2.868-2.32 1.585 0 2.87-.483 2.87 2.185V27.18z"/><path fill="#233166" d="M10.68 28.678c0 2.67-2.235 2.205-4.99 2.205-2.756 0-4.99.507-4.99-2.162V8.827c0-2.67 2.234-2.32 4.99-2.32 2.754 0 4.99-.483 4.99 2.185V28.68z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 40 40"><path fill="#11c1f3" d="M6.8 8.163H38.63v22.615H6.8z"/><path fill="#FFF" d="M5.813 15.855H39.3v7.82H5.812z"/><circle fill="#FFF" cx="23.113" cy="19.765" r="7.419"/><circle fill="none" stroke="#11c1f3" stroke-miterlimit="10" cx="23.114" cy="19.766" r="5.505"/><circle fill="#11c1f3" cx="23.114" cy="19.766" r="3.911"/><path fill="#11c1f3" d="M8.56 27.178c0 2.67-1.285 2.205-2.87 2.205-1.584 0-2.868.507-2.868-2.162V7.327c0-2.67 1.284-2.32 2.868-2.32 1.585 0 2.87-.483 2.87 2.185V27.18z"/><path fill="#11c1f3" d="M10.68 28.678c0 2.67-2.235 2.205-4.99 2.205-2.756 0-4.99.507-4.99-2.162V8.827c0-2.67 2.234-2.32 4.99-2.32 2.754 0 4.99-.483 4.99 2.185V28.68z"/></svg>
   </a>
 </template>

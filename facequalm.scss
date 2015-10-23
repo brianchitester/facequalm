@@ -1,5 +1,7 @@
-$foreground-gray: #337ab7;
-$background-gray: #FCFCFC;
+@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic';
+@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
+
+$foreground-gray: $calm;
 
 $font-family:  'Open Sans', sans-serif;
 
@@ -29,8 +31,8 @@ header {
   margin: 0rem 0 1rem 0;
     border: solid #DAE8E6 1px;
 }
+
 body {
-   background: $background-gray;
    text-align: center;
    font-family: $font-family; 
 }
@@ -57,62 +59,28 @@ button {
 }
 
 .userinfo{
-	background: $background-gray;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
    text-align: center;
    font-family: $font-family; 
-
-   button {
-	display: inline-block;
-	background-color: #DDDDDD;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
 }
 .content{ 
-  background: #FFF;
-  max-width: 1000px;
-  border-radius: 2px;
-  border: solid #DAE8E6 1px;
-  display: block;
-  position: relative;
   width: 95%;
+  padding-top: 1em;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 1rem;
 }
 
-.logo{
-	width: 5em;
-	height: 5em;
+.nav-bar-block {
+	padding-bottom: 1em;	
 }
 
-img{
-	border-radius: 100px;
+.header-logo-left {
+	background-size: 40px;
+	display:inline-block;
+	height: 40px;
+	width: 40px;
+	vertical-align: middle; 
+	background-image: 
+        url("data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibG9nbyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiPjxnIGZpbGw9IiNGRkYiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIj48cGF0aCBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0zMjkuMDk2IDE0Mi4yODJjMCA0MC4xOTMtOC45NTQgNjkuMjYzLTI2LjMyNCA5MC40NC0xNS4zMSAxOC42Ni0zNC44MzYgMjguNTQtNTMuNTc2IDM3Ljg4LTI4LjI1NCAxNC4wODItNDcuNzEzIDI1LjU3Ni00Ny43MTMgNTcuNzJ2NS44ODhIMTg5Ljcxdi01Ljg4N2MwLTQxLjM4IDI2LjAwMy01NC4xOSA1NC4yMzQtNjguMjU4IDE3LjgwNS04Ljg3IDM2LjE1LTE4LjQ1NSA1MC4wNDMtMzUuNzUyIDEzLjg5My0xNy4yOTcgMjMuMzM1LTQyLjMwNyAyMy4zMzUtODIuMDMgMC0yOS45NC05LjQ2Ni01My4wNjgtMjcuMjMzLTY5LjI1OC0yMC41MTgtMTguNjk0LTUyLjEwMy0yOC4xMzgtOTIuOTY0LTI4LjEzOC0zOC4xOTIgMC03My42MjMgMjAuMzEtOTcuMjYyIDU0LjU0N2wtMy4zNDYgNC44NDQtOS42ODgtNi42OSAzLjM0NC00Ljg0M2MyNi40MTItMzguMjUgNjUuMzczLTU5LjYzIDEwNi45NS01OS42MyA0Ni4yODQgMCA3OC44MyAxMC4wNjIgMTAwLjczNiAzMC42NiAxOS43NDQgMTguNTYgMzEuMjM1IDQ1LjczMyAzMS4yMzYgNzguNTA3ek0yMTAuMjgyIDM2NC41NzhjMCA4Ljk5Ni00Ljk1IDE0LjQyMi0xMy40MjMgMTQuNDIyLTcuNzM4IDAtMTMuMDktNS40NzMtMTMuMDktMTQuNDIyIDAtOS4xMSA1LjQ4Ni0xNC40MjQgMTMuNDIyLTE0LjQyNCA3LjgzNSAwIDEzLjA5IDUuMTY0IDEzLjA5IDE0LjQyNHoiLz48cGF0aCBzdHJva2Utd2lkdGg9IjYiIGQ9Ik0xNjQuODUgMTQ2LjQ1Yy01LjQ1MiAwLTkuNTQyLTMuNDg0LTkuNTQyLTkuMDkgMC01LjMwMyA0LjA5LTguOTM4IDkuNTQzLTguOTM4IDUuNjA2IDAgOS41NDYgMy43ODcgOS41NDYgOS4wOSAwIDUuMy0zLjk0IDguOTM4LTkuNTQ1IDguOTM4ek0yNDAuNzgzIDEyOC40MjJjNS42MDUgMCA5LjU0MiAzLjc4NyA5LjU0MiA5LjA5IDAgNS4zLTMuOTM3IDguOTM4LTkuNTQyIDguOTM4LTUuNDUzIDAtOS41NDYtMy40ODQtOS41NDYtOS4wOSAwLTUuMzAzIDQuMDkzLTguOTM4IDkuNTQ2LTguOTM4ek0xNDQuNTkgMTY4LjQ1YzAgMy4yNSAxLjM3MiA2LjQ3MiA0LjA3NyA5LjU4IDIuODE2IDMuMjMzIDcuMDk0IDYuMyAxMi4zNyA4Ljg2NCAxMS40MjUgNS41NSAyNi42OSA4LjYwNSA0Mi45OSA4LjYwNSAxNi4yOTcgMCAzMS41NjMtMy4wNTggNDIuOTg2LTguNjA2IDUuMjc4LTIuNTY0IDkuNTU2LTUuNjMgMTIuMzczLTguODY1IDIuNzA0LTMuMTA4IDQuMDc2LTYuMzMgNC4wNzYtOS41OGg3LjExYzAgOS42MS03LjI2NCAxOC40My0yMC40NTIgMjQuODQtMTIuMzcyIDYuMDEtMjguNzQyIDkuMzItNDYuMDk1IDkuMzJzLTMzLjcyMy0zLjMxMi00Ni4wOTUtOS4zMmMtMTMuMTg4LTYuNDEtMjAuNDUtMTUuMjMtMjAuNDUtMjQuODRoNy4xMXoiLz48cGF0aCBzdHJva2Utd2lkdGg9IjMiIGQ9Ik03NC4zIDE1Mi4wM2MwLTMyLjc3NCAxMS40OS01OS45NDYgMzEuMjMzLTc4LjUxbDcuNzcyIDkuMjUyYy0xNy43NjcgMTYuMTktMjcuMjMzIDM5LjMxOC0yNy4yMzMgNjkuMjU4Ii8+PC9nPjwvc3ZnPg==");
 }
-
-
-footer {
-   background: $background-gray;
-   text-align: center;
-   font-family: $font-family; 
-   color: #000;
-}
-
-

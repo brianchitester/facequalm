@@ -1,0 +1,9 @@
+<template name="profilelink">
+	<section class = "userinfo">
+    {{#if signedInAs}}
+        <a href="/profile">{{signedInAs}}</a>
+        <br/>
+        {{> atNavButton}}
+    {{/if}}
+    </section>
+</template>
