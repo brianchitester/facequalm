@@ -1,11 +1,16 @@
 <template name="home">
-	 <h3>Current Games</h3>
+	 <h3>CURRENT GAMES</h3>
+	 <hr/>
 	 {{#each games}}
-	 	<li><a href="upload/{{_id}}">{{_id}}</a></li>
+	 <div class="col-md-12">
+          <div class="update-nag">
+            <div class="update-split"><i class="glyphicon glyphicon-refresh"></i></div>
+            <div class="update-text"><a href="upload/{{_id}}">{{_id}}</a> </div>
+          </div>
+        </div>
 	 {{/each}}
 	 <br/>
-	 <br/>
-	 <button class="btn btn-default">Create Game</button>
+	 <a id='create-game'><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 40 40"><path fill="#337ab7" d="M39.75 20c0 10.908-8.842 19.75-19.75 19.75S.25 30.908.25 20 9.092.25 20 .25 39.75 9.092 39.75 20zM21.61 8.007H18.39v10.38H8.054v3.225h10.334v10.38h3.223v-10.38h10.335v-3.224H21.61V8.008z"/></svg></a>
 </template>
 
 

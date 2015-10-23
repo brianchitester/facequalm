@@ -37,10 +37,10 @@ Template.upload.helpers({
 var context, canvas;
 
 Template.photo.events({
-    'click button': function() {
+    'click #snap': function() {
         var cameraOptions = {
             height: 240,
-            width: 320
+            width: 240
         };
 
         MeteorCamera.getPicture(cameraOptions, function(error, data) {

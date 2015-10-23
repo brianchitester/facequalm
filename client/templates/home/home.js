@@ -5,7 +5,7 @@
     });
 
     Template.home.events({
-        'click button': function() {
+        'click #create-game': function() {
             $.getJSON("http://uifaces.com/api/v1/random", function(data) {
                 Meteor.call('createGame', Meteor.userId(), data.image_urls.epic, function(error, results) {
                     if (error) {
