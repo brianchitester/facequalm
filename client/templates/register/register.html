@@ -1,3 +1,11 @@
 <template name="register">
-	{{> atForm}}
+{{#contentFor "headerTitle"}}
+  <h1 class="title">FaceQualm</h1>
+{{/contentFor}}
+
+{{#ionView}}
+	{{#ionContent}}
+		{{> atForm}}
+	 {{/ionContent}}
+{{/ionView}}
 </template>

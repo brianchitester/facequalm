@@ -1,32 +1,45 @@
 <template name="upload">
 
-  <h2>Users playing:</h2>
-  {{#each users}}
-  	<li>{{this}}</li>
-  {{/each}}
+{{#contentFor "headerTitle"}}
+  <h1 class="title">Upload your Image</h1>
+{{/contentFor}}
 
-  <br/>
-  <br/>
+{{#contentFor "headerButtonLeft"}}
+  {{>ionNavBackButton class="btn-positive" path="home" text="Back"}}
+{{/contentFor}}
 
-  {{> newGame}}
-  <br/>
-  <a href="{{pathFor route='home'}}">Return to Lobby</a>
+{{#ionView}}
+  {{#ionContent}}
+    <h2>Users playing:</h2>
+    {{#each users}}
+      <li>{{this}}</li>
+    {{/each}}
+
+    <br/>
+    <br/>
+
+    {{> newGame}}
+    <br/>
+    <a href="{{pathFor route='home'}}">Return to Lobby</a>
 
 
-  <br/>
-  <br/>
+    <br/>
+    <br/>
 
-  <h3>Round Number: {{roundNumber}}</h3>
+    <h3>Round Number: {{roundNumber}}</h3>
 
-  <div>
-    <img src="{{matchUrl}}">
-  </div>
+    <div>
+      <img src="{{matchUrl}}">
+    </div>
 
-  {{> camera}}
+    {{> photo}}
 
-  {{#each storedImages}}
-    {{> storedImage}}
-  {{/each}}
+    {{#each storedImages}}
+      {{> storedImage}}
+    {{/each}}
+   {{/ionContent}}
+{{/ionView}}
+
 </template>
 
 <template name = "newGame">
@@ -43,8 +56,6 @@
 	</div>
 </template>
 
-<template name = "camera">
-	<video id="video" width="640" height="480" autoplay></video>
+<template name = "photo">
 	<button id="snap">Snap Photo</button>
-	<canvas id="canvas" width="320" height="240" style= "display:none;"></canvas>
 </template>
