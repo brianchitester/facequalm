@@ -1,12 +1,15 @@
 <template name="home">
 {{#contentFor "headerTitle"}}
-  <h1 class="title">Home</h1>
+  <h1 class="title">
+  	<span class="header-logo-left"></span>
+  	<span>Home</span>
+  </h1>
 {{/contentFor}}
 
 {{#ionView}}
 	{{#ionContent}}
-	 <h3>CURRENT GAMES</h3>
-	 <hr/>
+	 {{> profilelink}}
+	 <h3>Current Games</h3>
 	 {{#each games}}
 	 <div class="col-md-12">
           <div class="update-nag">
@@ -16,7 +19,7 @@
         </div>
 	 {{/each}}
 	 <br/>
-	 <a id='create-game'><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 40 40"><path fill="#337ab7" d="M39.75 20c0 10.908-8.842 19.75-19.75 19.75S.25 30.908.25 20 9.092.25 20 .25 39.75 9.092 39.75 20zM21.61 8.007H18.39v10.38H8.054v3.225h10.334v10.38h3.223v-10.38h10.335v-3.224H21.61V8.008z"/></svg></a>
-	 {{/ionContent}}
+	 <a id='create-game'><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 40 40"><path fill="#11c1f3" d="M39.75 20c0 10.908-8.842 19.75-19.75 19.75S.25 30.908.25 20 9.092.25 20 .25 39.75 9.092 39.75 20zM21.61 8.007H18.39v10.38H8.054v3.225h10.334v10.38h3.223v-10.38h10.335v-3.224H21.61V8.008z"/></svg></a>
+	{{/ionContent}}
 {{/ionView}}
 </template>

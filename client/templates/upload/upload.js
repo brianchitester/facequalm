@@ -61,7 +61,7 @@ Template.photo.events({
 
 
 Template.storedImage.events({
-    'click button': function(e) {
+    'click .vote-button': function(e) {
         var currentGame = Games.findOne();
         var currentRound = Rounds.findOne({
             gameId: currentGame._id,

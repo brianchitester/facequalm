@@ -1,9 +1,7 @@
-.home {
+@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic';
+@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
 
-	body{
-    margin-top:10px;
-    background: #e0e0e0;
-}
+.home {
 
 .update-nag{
   display: inline-block;
@@ -23,7 +21,7 @@
 }
 
 .update-nag > .update-split{
-  background: #337ab7;
+  background: $calm;
   width: 33px;
   float: left;
   color: #fff!important;
@@ -46,8 +44,6 @@
 .update-nag > .update-split.update-info{
   background: #5bc0de!important;
 }
-
-
 
 .update-nag > .update-text{
   line-height: 19px;

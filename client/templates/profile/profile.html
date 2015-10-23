@@ -1,12 +1,27 @@
 <template name="profile">
+{{#contentFor "headerTitle"}}
+  <h1 class="title">
+    <span class="header-logo-left"></span>
+    <span>Profile</span>
+  </h1>
+{{/contentFor}}
+
+{{#contentFor "headerButtonLeft"}}
+  {{>ionNavBackButton class="btn-positive" path="home" text="Back"}}
+{{/contentFor}}
+
+{{#ionView}}
+  {{#ionContent}}
     <h3>{{user}}</h3>
     <h4>Change display name</h4>
-	New Name: <input type="text" id="profilename"><br>
-	<button id="change-name">Submit</button>
+    New Name: <input type="text" id="profilename"><br>
+    <button id="change-name">Submit</button>
     <h4>Change Password</h4>
     <form>
         Old Password: <input type="password" id="oldpassword"><br>
         New Passowrd: <input type="password" id="newpassword"><br>
         <button id="password-reset">Submit</button>
     </form>
+   {{/ionContent}}
+{{/ionView}}
 </template>
