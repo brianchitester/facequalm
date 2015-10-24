@@ -1,8 +1,9 @@
 @import '.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic';
 @import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
 
-$foreground-gray: $calm;
 
+$mockup-blue: #a4c2f4;
+$foreground-gray: $mockup-blue;
 $font-family:  'Open Sans', sans-serif;
 
 h1 {
@@ -65,7 +66,7 @@ button {
    font-family: $font-family; 
 }
 .content{ 
-  width: 95%;
+  max-width: 700px;
   padding-top: 1em;
   margin-left: auto;
   margin-right: auto;
