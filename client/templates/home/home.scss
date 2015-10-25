@@ -2,48 +2,20 @@
 @import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
 
 .home {
-  .update-nag {
-    display: inline-block;
-    font-size: 14px;
-    text-align: left;
-    background-color: #fff;
-    height: 40px;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
-    margin-bottom: 10px;
+
+  .game-list {
+    height: 60%;
   }
-  .update-nag:hover {
-    cursor: pointer;
-    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .4);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .3);
+
+  .friend-list {
+    height: 60%;
   }
-  .update-nag > .update-split {
-    background: $calm;
-    width: 33px;
-    float: left;
-    color: #fff !important;
-    height: 100%;
-    text-align: center;
+  
+  .find-friends{
+    line-height: 3.5em;
+    padding: 5em 0 0 0;
   }
-  .update-nag > .update-split > .glyphicon {
-    position: relative;
-    top: calc(50% - 9px) !important; /* 50% - 3/4 of icon height */
-  }
-  .update-nag > .update-split.update-success {
-    background: #5cb85c !important;
-  }
-  .update-nag > .update-split.update-danger {
-    background: #d9534f !important;
-  }
-  .update-nag > .update-split.update-info {
-    background: #5bc0de !important;
-  }
-  .update-nag > .update-text {
-    line-height: 19px;
-    padding-top: 11px;
-    padding-left: 45px;
-    padding-right: 20px;
-  }
+
   .tab-buttons {
     button {
       width: 33%;

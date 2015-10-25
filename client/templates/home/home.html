@@ -28,6 +28,7 @@
 		</button>
 		</div>
 
+    <div class ="game-list">
 		{{#ionList}}
     		{{#each games}}
      			<a href="upload/{{_id}}">
@@ -38,11 +39,41 @@
       			</a>
     		{{/each}}
   		{{/ionList}}
-
+    </div>
 	 <br/>
-	 <button id="create-game" class="button button-large button-calm">
+	 <button id="create-game"  data-ion-modal="inviteFriends" class="button button-large button-calm">
   		CREATE GAME
 	</button>
 	{{/ionContent}}
 {{/ionView}}
+</template>
+
+
+<template name="inviteFriends">
+  {{#ionModal title="Select Friends"}}
+    <p>Select 2-5 Friends to start a Game!</p>
+    <div class ="friend-list">
+    {{#ionContent}}
+    {{#ionList}}
+    		{{#each friends}}
+    				{{#ionItem}}
+              <label class="checkbox">
+  						  <input type="checkbox" name ="friends" value={{_id}}>
+  						</label>
+              {{username}}
+    				{{/ionItem}}
+    		{{/each}}
+  		{{/ionList}}
+      {{/ionContent}}
+      </div>
+  		<button id="start-game" class="button button-large button-calm" data-dismiss=modal>
+  		START GAME
+	</button>
+  <div class="find-friends">
+    Want more friends?     
+    <button id="find-friends" class="button button-energized">
+      Find Friends 
+    </button>
+  </div>
+  {{/ionModal}}
 </template>
