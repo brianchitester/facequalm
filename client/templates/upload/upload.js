@@ -80,3 +80,11 @@ Template.newGame.events({
         });
     }
 });
+
+Template.leaveGame.events({
+    'click button': function() {
+        Meteor.call('leaveGame', Games.findOne()._id, function(){
+            Router.go('/');
+        });
+    }
+});

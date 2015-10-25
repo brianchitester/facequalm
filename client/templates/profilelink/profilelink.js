@@ -15,4 +15,9 @@ if (Meteor.isClient) {
             }
         }
     });
+    Template.profilelink.events({
+        'click button': function() {
+            Router.go('/');
+        }
+    });
 }

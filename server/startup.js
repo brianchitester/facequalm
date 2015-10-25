@@ -98,6 +98,14 @@ if (Meteor.isServer) {
                     }, currentGame);
                 }
             },
+            leaveGame: function(gameId) {
+                var currentGame = Games.findOne({
+                    _id: gameId
+                });
+                if (currentGame) {
+                   Games.remove({_id: gameId})
+                }
+            },
             //Takes game _id and url for user's to match
             //Creates new game round, and updates game to that round
             newSession: function(gameId, faceUrl) {
