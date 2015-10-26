@@ -143,7 +143,8 @@ if (Meteor.isServer) {
             var imageId = Images.insert({
                 imageSource: imageUrl,
                 createdAt: new Date(),
-                creatorId: this.userId
+                creatorId: this.userId,
+                creatorUserName: Meteor.user().username
             });
             currentRound.imageToVotesMap[imageId] = 0;
             Rounds.update({
