@@ -21,11 +21,10 @@ iron:router
 accounts-password
 accounts-facebook
 accounts-base
-useraccounts:bootstrap
 useraccounts:core
 mdg:camera
-fourseven:scss
 andrei:iron-router-body-class
-meteoric:ionic-sass
-meteoric:ionicons-sass
 meteoric:ionic
+seba:ionic-sass
+fourseven:scss@3.4.0-beta1
+useraccounts:ionic

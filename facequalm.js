@@ -1,3 +1,10 @@
+AccountsTemplates.configure({
+    onLogoutHook: function() {
+        Router.go('/');
+    },
+    enablePasswordChange: true
+});
+
 Router.configure({
     layoutTemplate: 'main',
     notFoundTemplate: '404'

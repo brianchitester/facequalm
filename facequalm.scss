@@ -1,5 +1,13 @@
-@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic';
-@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
+@import '{seba:ionic-sass}/scss/ionic';
+@import '{seba:ionic-sass}/scss/ionicons/ionicons';
+
+.at-form .button.button-positive
+{
+	//using to override the buttons from the ionic user accounts
+	//this will prevent any ionic positive button though
+	background-color: $calm !important;
+	border-color: #0a9dc7 !important;
+}
 
 $foreground-gray: $calm;
 
@@ -29,7 +37,7 @@ header {
   position: relative;
   width: 100%;
   margin: 0rem 0 1rem 0;
-    border: solid #DAE8E6 1px;
+  border: solid #DAE8E6 1px;
 }
 
 body {
@@ -58,17 +66,24 @@ button {
     border-radius: 4px;
 }
 
-.userinfo{
+.userinfo
+{
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-   text-align: center;
-   font-family: $font-family; 
+   	text-align: center;
+   	font-family: $font-family; 
 }
-.content{ 
-  width: 95%;
-  padding-top: 1em;
-  margin-left: auto;
-  margin-right: auto;
+
+.content
+{ 
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.overflow-scroll 
+{
+	//For some reason it shows a scrollbar when not neccessary.
+	overflow-y:auto;
 }
 
 .nav-bar-block {
