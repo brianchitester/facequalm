@@ -95,6 +95,16 @@ if (Meteor.isServer) {
                 throw new Meteor.Error("game-not-found", 'Game Not Found', 'that game doesnt seem to exist');
             }
         },
+        leaveGame: function(gameId) {
+            var currentGame = Games.findOne({
+                _id: gameId
+            });
+            if (currentGame) {
+                Games.remove({
+                    _id: gameId
+                })
+            }
+        },
         inviteFriend: function(gameId, friendId) {
             Invites.insert({
                 gameId: gameId,

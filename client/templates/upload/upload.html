@@ -30,13 +30,18 @@
       {{/each}}
 
       {{> newGame}}
+      {{> leaveGame}}
 
    {{/ionContent}}
 {{/ionView}}
 </template>
 
 <template name = "newGame">
-		<button class="button button-block button-calm">Start New Round</button>
+    <button class="button button-block button-calm">Start New Round</button>
+</template>
+
+<template name = "leaveGame">
+    <button class="button button-block button-assertive">Leave Game</button>
 </template>
 
 <template name = "storedImage">
