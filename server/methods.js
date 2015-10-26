@@ -89,6 +89,7 @@ if (Meteor.isServer) {
                 }, currentGame);
 
                 Invites.remove({
+                    userId: this.userId,
                     gameId: gameId
                 });
             } else {
