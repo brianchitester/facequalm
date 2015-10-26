@@ -1,29 +1,28 @@
 <template name="home">
-  {{#contentFor "headerTitle"}}
-    <h1 class="title">
-    	<span class="header-logo-left"></span>
-    	<span>Home</span>
-    </h1>
-  {{/contentFor}}
+{{#contentFor "headerTitle"}}
+  <h1 class="title">
+  	<span class="header-logo-left"></span>
+  	<span>Home</span>
+  </h1>
+{{/contentFor}}
 
-  {{#contentFor "headerButtonLeft"}}
-    {{> ionSideMenu}}
-  {{/contentFor}}
+{{#contentFor "headerButtonRight"}}
+  {{> atNavButton }}
+{{/contentFor}}
 
-  {{#ionView}}
-  	{{#ionContent}}
-  		{{> profilelink}}
+{{#ionView}}
+	{{#ionContent}}
+	 {{> profilelink}}
 
       {{> gameList}}
 
-  	 <button id="create-game"  data-ion-modal="inviteFriends" class="button button-large button-calm">
-    		CREATE GAME
-  	</button>
+     <button id="create-game"  data-ion-modal="inviteFriends" class="button button-large button-calm">
+        CREATE GAME
+    </button>
 
-  	{{/ionContent}}
-  {{/ionView}}
+	{{/ionContent}}
+{{/ionView}}
 </template>
-
 
 <template name="gameList">
     <div class="tabs">

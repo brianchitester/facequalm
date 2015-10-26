@@ -1,5 +1,6 @@
-@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic';
-@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
+@import '{seba:ionic-sass}/scss/ionic';
+@import '{seba:ionic-sass}/scss/ionicons/ionicons';
+
 
 .home {
 
