@@ -26,7 +26,7 @@ Template.upload.helpers({
     },
     users: function() {
         var currentGame = Games.findOne();
-        return currentGame.userIds
+        return currentGame.userNames;
     },
     roundNumber: function() {
         var currentGame = Games.findOne();

@@ -58,6 +58,7 @@ if (Meteor.isServer) {
             var gameId = Games.insert({
                 creatorId: userId,
                 userIds: [userId],
+                userNames: [Meteor.user().username],
                 state: 1,
                 config: {},
                 name: ''
@@ -84,6 +85,7 @@ if (Meteor.isServer) {
             });
             if (currentGame) {
                 currentGame.userIds.push(this.userId);
+                currentGame.userNames.push(Meteor.user().username);
                 Games.update({
                     _id: gameId
                 }, currentGame);
