@@ -87,21 +87,19 @@ if (Meteor.isServer) {
                 Games.update({
                     _id: gameId
                 }, currentGame);
+
+                Invites.remove({
+                    gameId: gameId
+                });
+            } else {
+                throw new Meteor.Error("game-not-found", 'Game Not Found', 'that game doesnt seem to exist');
             }
         },
-        inviteFriend: function(gameId, friendId){
-            var currentGame = Games.findOne({
-                _id: gameId
-            });
-
-            var friend = Meteor.users.findOne({
-                _id: friendId
-            });
-
+        inviteFriend: function(gameId, friendId) {
             Invites.insert({
-                gameId : gameId,
+                gameId: gameId,
                 creator: Meteor.userId,
-                userId : friendId
+                userId: friendId
             });
         },
         //Takes game _id and url for user's to match

@@ -18,7 +18,7 @@ if (Meteor.isServer) {
     Meteor.publish("invites", function() {
         var currentUser = this.userId;
         return Invites.find({
-            userId: currentUser
+            userId: this.userId
         });
     });
 

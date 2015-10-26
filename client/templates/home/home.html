@@ -1,51 +1,65 @@
 <template name="home">
-{{#contentFor "headerTitle"}}
-  <h1 class="title">
-  	<span class="header-logo-left"></span>
-  	<span>Home</span>
-  </h1>
-{{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">
+    	<span class="header-logo-left"></span>
+    	<span>Home</span>
+    </h1>
+  {{/contentFor}}
 
-{{#contentFor "headerButtonLeft"}}
-  {{> ionSideMenu}}
-{{/contentFor}}
+  {{#contentFor "headerButtonLeft"}}
+    {{> ionSideMenu}}
+  {{/contentFor}}
 
-{{#ionView}}
-	{{#ionContent}}
-		{{> profilelink}}
+  {{#ionView}}
+  	{{#ionContent}}
+  		{{> profilelink}}
 
-	 	<div class="tabs">
-	 	<button class="tab-item active">
-		  PENDING INVITES
-		</button>
+      {{> gameList}}
 
-		<button class="tab-item">
-		  ACTIVE GAMES
-		</button>
+  	 <button id="create-game"  data-ion-modal="inviteFriends" class="button button-large button-calm">
+    		CREATE GAME
+  	</button>
 
-		<button class="tab-item">
-		  COMPLETED GAMES
-		</button>
-		</div>
+  	{{/ionContent}}
+  {{/ionView}}
+</template>
+
+
+<template name="gameList">
+    <div class="tabs">
+    <button id="pending" class="tab-item">
+      PENDING INVITES
+    </button>
+
+    <button id="active" class="tab-item">
+      ACTIVE GAMES
+    </button>
+
+    <button id="completed" class="tab-item">
+      COMPLETED GAMES
+    </button>
+    </div>
 
     <div class ="game-list">
-		{{#ionList}}
-    		{{#each games}}
-     			<a href="upload/{{_id}}">
-    				{{#ionItem iconLeft=true id="my-id"}}
-      					<h2>{{_id}}</h2>
-      					{{> ionIcon icon="ios-camera" }}
-      				{{/ionItem}}
-      			</a>
-    		{{/each}}
-  		{{/ionList}}
+    {{#ionList}}
+        {{#each games}}
+          {{#if active}}
+          <a href="upload/{{_id}}">
+            {{#ionItem iconLeft=true id="my-id"}}
+                <h2>{{_id}}</h2>
+                {{> ionIcon icon="ios-camera" }}
+              {{/ionItem}}
+            </a>
+            {{else}}
+              {{#ionItem iconLeft=true buttonRight=true id="my-id"}}
+                <h2>{{gameId}}</h2>
+                {{> ionIcon icon="ios-help" }}
+                <button class="button button-small button-calm" id={{gameId}}>Accept</button>
+              {{/ionItem}}
+          {{/if}}
+        {{/each}}
+      {{/ionList}}
     </div>
-	 <br/>
-	 <button id="create-game"  data-ion-modal="inviteFriends" class="button button-large button-calm">
-  		CREATE GAME
-	</button>
-	{{/ionContent}}
-{{/ionView}}
 </template>
 
 
