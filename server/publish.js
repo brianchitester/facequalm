@@ -22,13 +22,6 @@ if (Meteor.isServer) {
         });
     });
 
-    Meteor.publish("friends", function() {
-        var currentUser = this.userId;
-        return Friends.find({
-            userIds: currentUser
-        });
-    });
-
     //TODO - only return a game's images
     Meteor.publish("images", function() {
         return Images.find();
