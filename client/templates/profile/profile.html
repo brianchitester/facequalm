@@ -17,6 +17,15 @@
 {{#ionView}}
   {{#ionContent}}
     <h3>{{user}}</h3>
+    <div class="item friends-list">
+      <label>Friends</label>
+      {{#ionList}}
+        {{#each friends}}
+          {{username}}
+        {{/each}}
+      {{/ionList}}
+      <button id="add-friend">add friend</button>
+    </div>
     <div class="at-input item item-input item-text-wrap item-stacked-label">
         <label class="input-label" for="profilename">
             Change display name

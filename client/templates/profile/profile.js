@@ -12,6 +12,13 @@ Template.profile.helpers({
                 return "Signed In";
             }
         }
+    },
+    friends: function() {
+        var user = Meteor.user();
+        if (user.profile.friends) {
+            return user.profile.friends;
+        }
+        else return [];
     }
 });
 
@@ -22,6 +29,23 @@ Template.profile.events({
             {_id: Meteor.user()._id }, 
             {$set:{"profile.name":name}}
         );
+    },
+    'click #add-friend': function(){
+        IonPopup.prompt({
+            title: 'Add Friend',
+            okType: 'button-calm',
+            inputPlaceholder: 'Enter username',
+            onOk: function(e, username) {
+                Meteor.call('addFriend', username, function(error, results) {
+                    if (error) {
+                        IonPopup.alert({
+                            title: 'Error',
+                            template: error
+                        });
+                    }
+                });
+            }
+        });
     }
 });
 
