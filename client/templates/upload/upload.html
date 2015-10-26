@@ -10,6 +10,10 @@
   {{>ionNavBackButton class="btn-positive" path="home" text="Back"}}
 {{/contentFor}}
 
+{{#contentFor "headerButtonRight"}}
+  {{> atNavButton }}
+{{/contentFor}}
+
 {{#ionView}}
   {{#ionContent}}
     {{> profilelink}}
@@ -29,8 +33,10 @@
         <li>{{this}}</li>
       {{/each}}
 
-      {{> newGame}}
-      {{> leaveGame}}
+      <div class="game-buttons">
+        {{> newGame}}
+        {{> leaveGame}}
+      </div>
 
    {{/ionContent}}
 {{/ionView}}

@@ -10,18 +10,22 @@
   {{>ionNavBackButton class="btn-positive" path="home" text="Back"}}
 {{/contentFor}}
 
+{{#contentFor "headerButtonRight"}}
+  {{> atNavButton }}
+{{/contentFor}}
+
 {{#ionView}}
   {{#ionContent}}
     <h3>{{user}}</h3>
-    <h4>Change display name</h4>
-    New Name: <input type="text" id="profilename"><br>
-    <button id="change-name">Submit</button>
-    <h4>Change Password</h4>
-    <form>
-        Old Password: <input type="password" id="oldpassword"><br>
-        New Passowrd: <input type="password" id="newpassword"><br>
-        <button id="password-reset">Submit</button>
-    </form>
+    <div class="at-input item item-input item-text-wrap item-stacked-label">
+        <label class="input-label" for="profilename">
+            Change display name
+        </label>
+        <input id="profilename" placeholder="New Display Name" autocapitalize="none" autocorrect="off">  
+        <button id="change-name">Submit</button>
+    </div>
+    {{> atForm state='changePwd'}}
    {{/ionContent}}
 {{/ionView}}
 </template>
+
