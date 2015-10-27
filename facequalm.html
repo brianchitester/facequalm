@@ -1,47 +1,15 @@
-<head>
-  <title>facequalm</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300,600' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
-  <h1>Welcome to FaceQualm!</h1>
+<template name="main">
 
-  {{> newGame}}
+{{#ionBody}}
+	{{> ionNavBar class="bar-calm"}}
+	{{#ionNavView}}
 
-  {{#each imagesToMatch}}
-  	{{> imageToMatch}}
-  {{/each}}
-
-  {{> camera}}
-
-  {{#each storedImages}}
-  	{{> storedImage}}
-  {{/each}}
-</body>
-
-
-<template name = "newGame">
-	<div>
-		<button class="new-game-button">Start New Game</button>
-	</div>
-</template>
-
-<template name ="imageToMatch">
-	<div>
-		<img src="{{url}}">
-	</div>
-</template>
-
-<template name = "storedImage">
-	<div>
-		<img src="{{imageSource}}">
-		<button data-id="{{_id}}" class="vote-button">Vote for this picture. NumVotes: {{numVotes}}</button>
-	</div>
-</template>
-
-<template name = "camera">
-	<video id="video" width="640" height="480" autoplay></video>
-	<button id="snap">Snap Photo</button>
-	<canvas id="canvas" width="320" height="240" style= "display:none;"></canvas>
+    {{> yield}}
+    {{/ionNavView}}
+{{/ionBody}}
 </template>

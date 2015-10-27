@@ -1,0 +1,28 @@
+<template name="studio">
+{{#contentFor "headerTitle"}}
+  <h1 class="title">
+    <span class="header-logo-left"></span>
+    <span>Create your avatar</span>
+  </h1>
+{{/contentFor}}
+
+{{#contentFor "headerButtonLeft"}}
+  {{>ionNavBackButton class="btn-positive" path="home" text="Back"}}
+{{/contentFor}}
+
+{{#contentFor "headerButtonRight"}}
+  {{> atNavButton }}
+{{/contentFor}}
+
+{{#ionView}}
+  {{#ionContent}}
+    {{> profilelink}}
+    <div class="studio-canvas-container">
+		<canvas id="studioCanvas" width="400" height="250"></canvas>
+    </div>
+    <button class="clear-avatar">Start Over</button>
+    <button class="select-avatar">Use this!</button>
+   {{/ionContent}}
+{{/ionView}}
+</template>
+

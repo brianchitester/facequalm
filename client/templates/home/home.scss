@@ -1,0 +1,44 @@
+@import '{seba:ionic-sass}/scss/ionic';
+@import '{seba:ionic-sass}/scss/ionicons/ionicons';
+
+
+.home {
+
+  .game-list {
+    height: 60%;
+  }
+
+  .friend-list {
+    height: 60%;
+  }
+  
+  .find-friends{
+    line-height: 3.5em;
+    padding: 5em 0 0 0;
+  }
+
+  .tab-buttons {
+    button {
+      width: 33%;
+      font-weight: 600;
+    }
+  }
+  .tabs {
+    position: relative;
+    background-color: transparent;
+    color: $calm;
+
+    .tab-item {
+      width: 33%;
+      max-width: initial;
+      font-weight: 600;
+      font-size: smaller;
+      background-color: transparent;
+      border: solid $calm 1px;
+    }
+    .tab-item.active {
+      background-color: $calm;
+      color: white;
+    }
+  }
+}

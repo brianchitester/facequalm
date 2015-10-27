@@ -1,0 +1,11 @@
+<template name="profilelink">
+	<section class = "userinfo">
+    {{#if signedInAs}}
+     <a class="item item-avatar" href="/profile">
+    	{{> avatarimage}}
+        <h2>{{signedInAs}}</h2>
+        <p>0 Games Won :(</p>
+    </a>
+    {{/if}}
+    </section>
+</template>

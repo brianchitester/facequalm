@@ -1,0 +1,92 @@
+<template name="home">
+{{#contentFor "headerTitle"}}
+  <h1 class="title">
+  	<span class="header-logo-left"></span>
+  	<span>Home</span>
+  </h1>
+{{/contentFor}}
+
+{{#contentFor "headerButtonRight"}}
+  {{> atNavButton }}
+{{/contentFor}}
+
+{{#ionView}}
+	{{#ionContent}}
+	 {{> profilelink}}
+
+      {{> gameList}}
+
+     <button id="create-game" data-ion-modal="inviteFriends" class="button button-large button-calm">
+        CREATE GAME
+    </button>
+
+	{{/ionContent}}
+{{/ionView}}
+</template>
+
+<template name="gameList">
+    <div class="tabs">
+    <button id="pending" class="tab-item">
+      PENDING INVITES
+    </button>
+
+    <button id="active" class="tab-item">
+      ACTIVE GAMES
+    </button>
+
+    <button id="completed" class="tab-item">
+      COMPLETED GAMES
+    </button>
+    </div>
+
+    <div class ="game-list">
+    {{#ionList}}
+        {{#each games}}
+          {{#if active}}
+          <a href="upload/{{_id}}">
+            {{#ionItem iconLeft=true id="my-id"}}
+                <h2>{{_id}}</h2>
+                {{> ionIcon icon="ios-camera" }}
+              {{/ionItem}}
+            </a>
+            {{else}}
+              {{#ionItem iconLeft=true buttonRight=true id="my-id"}}
+                <h2>{{gameId}}</h2>
+                {{> ionIcon icon="ios-help" }}
+                <button class="button button-small button-calm" id={{gameId}}>Accept</button>
+              {{/ionItem}}
+          {{/if}}
+        {{/each}}
+      {{/ionList}}
+    </div>
+</template>
+
+
+<template name="inviteFriends">
+  {{#ionModal title="Select Friends"}}
+    <p>Select 2-5 Friends to start a Game!</p>
+    <div class ="friend-list">
+    {{#ionContent}}
+    {{#ionList}}
+    		{{#each friends}}
+    				{{#ionItem}}
+              <label class="checkbox">
+  						  <input type="checkbox" name ="friends" value={{_id}}>
+  						</label>
+              {{username}}
+    				{{/ionItem}}
+    		{{/each}}
+  		{{/ionList}}
+      {{/ionContent}}
+      </div>
+  		<button id="start-game" class="button button-large button-calm" data-dismiss=modal>
+  		START GAME
+	</button>
+  <div class="find-friends">
+    Want more friends?     
+    <button id="find-friends" class="button button-energized">
+      Find Friends 
+    </button>
+  </div>
+  {{/ionModal}}
+</template>
