@@ -33,13 +33,22 @@ Template.studio.events({
 		context.moveTo(pageCoords.x - offset.left, pageCoords.y - offset.top);
 		dragging = true;
     },
-    'mousemove #studioCanvas, touchmove #studioCanvas': function(e){
+    'mousemove #studioCanvas': function(e){
 		if (dragging) {
 			var offset = canvas.offset();
 			var pageCoords = getPageCoords(e);
 			context.lineTo(pageCoords.x - offset.left, pageCoords.y - offset.top);
 			context.stroke();
 		}
+    },
+    'touchmove #studioCanvas': function(e){
+        e.preventDefault();
+        if (dragging) {
+            var offset = canvas.offset();
+            var pageCoords = getPageCoords(e);
+            context.lineTo(pageCoords.x - offset.left, pageCoords.y - offset.top);
+            context.stroke();
+        }
     },
     'mouseup #studioCanvas': function(e){
 		if (dragging) {
