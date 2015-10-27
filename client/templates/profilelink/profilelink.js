@@ -13,11 +13,12 @@ if (Meteor.isClient) {
                     return "Signed In";
                 }
             }
-        }
-    });
-    Template.profilelink.events({
-        'click button': function() {
-            Router.go('/');
+        },
+        avatarUrl: function() {
+            var user = Meteor.user();
+            if (user && user.avatarUrl) {
+                return user.avatarUrl;
+            }
         }
     });
 }

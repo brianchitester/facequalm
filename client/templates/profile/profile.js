@@ -30,6 +30,9 @@ Template.profile.events({
             {$set:{"profile.name":name}}
         );
     },
+    'click #create-avatar': function(){
+        Router.go('/studio');
+    },
     'click #add-friend': function(){
         IonPopup.prompt({
             title: 'Add Friend',
