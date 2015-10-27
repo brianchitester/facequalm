@@ -52,6 +52,16 @@ if (Meteor.isServer) {
         clearGames: function() {
             return Games.remove({});
         },
+        createAvatar: function(dataUrl) {
+            var currentUser = Meteor.user();
+            Meteor.users.update({
+                _id: currentUser._id
+            }, {
+                $set: {
+                    avatarUrl: dataUrl
+                }
+            });         
+        },
         //Creates new game with the given user ID as the creator
         //TODO - Take config param
         createGame: function(userId, faceUrl) {

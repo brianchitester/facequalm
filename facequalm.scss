@@ -67,14 +67,6 @@ button {
     border-radius: 4px;
 }
 
-.userinfo
-{
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-   	text-align: center;
-   	font-family: $font-family; 
-}
-
 .content
 { 
   	margin-left: auto;
@@ -89,6 +81,11 @@ button {
 
 .nav-bar-block {
 	padding-bottom: 1em;	
+}
+
+.avatar-level-1
+{
+	background-color: $calm;
 }
 
 .header-logo-left {
