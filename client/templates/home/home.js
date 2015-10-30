@@ -65,8 +65,7 @@
     Template.inviteFriends.events({
         'click #start-game': function() {
             var selectedFriends = $('input[type=checkbox]:checked');
-            $.getJSON("http://uifaces.com/api/v1/random", function(data) {
-                Meteor.call('createGame', Meteor.userId(), data.image_urls.epic, function(error, results) {
+                Meteor.call('createGame', Meteor.userId(), function(error, results) {
                     if (error) {
                         console.log(error.reason)
                     } else {
@@ -76,7 +75,6 @@
                         Router.go('/upload/' + results);
                     }
                 });
-            });
         },
         'click #find-friends': function() {
             IonPopup.prompt({

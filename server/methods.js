@@ -1,5 +1,59 @@
 if (Meteor.isServer) {
     //Server "helper" methods to call asynchronously from the client
+    var faceIndex = -1;
+    var getFaceUrl = function() {
+            var randomImages = ["10-reasons-denzel-washington-is-badass-561610606-may-11-2012-600x400.jpg",
+                "1292815989_eli.jpg",
+                "1348717742_lil-wayne-strip-club-50k-dollar-bills-funny-faces-3.jpg",
+                "270b9348571e7efd168669c6c781f412.jpg",
+                "30e380d312eb0cf8d1b0ab8d6eee92a7.jpg",
+                "52af99b77d9317858d34eb519130cc2d.jpg",
+                "5f7e2c6433ee5811e092f80d8a437545.jpg",
+                "6671f67ca67557f6a8a267afd0576a1d.jpg",
+                "71872AA8BFEE65E258FD21E76D84E.jpg",
+                "BillCosbyHimself4-450.jpg",
+                "Cuban-Makes-Funny-Face.jpg",
+                "FunnyFaces201007121648120034.jpg",
+                "Hillary-Clinton-Funny-Faces.jpg",
+                "James-Franco-Funny-Face.jpg",
+                "Jim+Carrey+Jim+Carrey+Ophelia+Lovibond+Set+DG_DOJuEY0Rl.jpg",
+                "Jim-Carey.jpg",
+                "Wwekwyf.jpg",
+                "a032a4d1b35de511c24f3c7bfa069189.jpg",
+                "amiley.jpg",
+                "bill-cosby-silly-face-jpg.jpg",
+                "c4ded2ce3f83183cc7557f22c8d35cda_fullsize.jpg",
+                "c6fe9246b3b547678057678111548e18.jpg",
+                "celeb-expressions-141.jpg",
+                "celebrity_funny_faces_pictures.jpg",
+                "donald-trump1.jpg",
+                "funny-celebrity-faces-23.jpg",
+                "funny-celebrity-faces-5.jpg",
+                "funny-obama-faces-strange-0.jpg",
+                "funnyface2.jpg",
+                "how_could_this_face_lie_to_you.jpg",
+                "hqdefault.jpg",
+                "jim-carreys-best-facial-expressions-of-the-90s-1-348-1358448944-5_big.jpg",
+                "katy-perry-funny-face-7.jpg",
+                "lebron-s-funniest-faces672620871-may-17-2012-600x416.jpg",
+                "miley-cyrus-funny-faces-14-1377697818-large-article-0.jpg",
+                "nicolas_cage_thumb.jpg",
+                "opera-facials-0.jpg",
+                "rexfeatures_1822822ag.jpg",
+                "s-KANYE-WEST-DOESNT-SMILE-large.jpg",
+                "sport-smile-7.jpg",
+                "tumblr_m5zd0xnZ8Q1qzy531o1_500.jpg"];
+
+                var path = '/facepics/'; // default path here
+                
+                if(faceIndex < 0) {
+                    faceIndex = Math.floor( Math.random() * randomImages.length );
+                } else {
+                    faceIndex = faceIndex >= randomImages.length ? 0 : faceIndex + 1;
+                }
+                var img = randomImages[faceIndex];
+                return path + img;
+    };
     return Meteor.methods({
         userExists: function(username) {
             return !!Meteor.users.findOne({
@@ -64,7 +118,7 @@ if (Meteor.isServer) {
         },
         //Creates new game with the given user ID as the creator
         //TODO - Take config param
-        createGame: function(userId, faceUrl) {
+        createGame: function(userId) {
             var gameId = Games.insert({
                 creatorId: userId,
                 userIds: [userId],
@@ -78,7 +132,7 @@ if (Meteor.isServer) {
                 gameId: gameId,
                 roundNumber: 1,
                 imageToVotesMap: {},
-                currentImage: faceUrl,
+                currentImage: getFaceUrl(),
                 state: "upload",
                 result: []
             });
@@ -127,7 +181,7 @@ if (Meteor.isServer) {
         },
         //Takes game _id and url for user's to match
         //Creates new game round, and updates game to that round
-        newSession: function(gameId, faceUrl) {
+        newSession: function(gameId) {
             var currentGame = Games.findOne({
                 _id: gameId
             });
@@ -135,7 +189,7 @@ if (Meteor.isServer) {
                 gameId: gameId,
                 roundNumber: currentGame.state + 1,
                 imageToVotesMap: {},
-                currentImage: faceUrl,
+                currentImage: getFaceUrl(),
                 state: "upload",
                 result: []
             });
