@@ -73,10 +73,8 @@ Template.storedImage.events({
 
 Template.newGame.events({
     'click button': function() {
-        $.getJSON("http://uifaces.com/api/v1/random", function(data) {
-            Meteor.call('newSession', Games.findOne()._id, data.image_urls.epic, function() {
-                Router.go('/upload/' + Games.findOne()._id);
-            });
+        Meteor.call('newSession', Games.findOne()._id, function() {
+            Router.go('/upload/' + Games.findOne()._id);
         });
     }
 });
