@@ -10,6 +10,11 @@ Router.configure({
     notFoundTemplate: '404'
 });
 
+
+Router.configure({
+  loadingTemplate: 'loading'
+});
+
 Router.onBeforeAction(function() {
     if (!Meteor.userId()) {
         this.render('register');

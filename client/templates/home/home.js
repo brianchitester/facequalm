@@ -42,6 +42,10 @@
         },
         completed: function() {
             return $('.active').attr('id') == 'completed';
+        },
+        tabSelected: function(){
+             gameDep.depend();
+             return $('.active').attr('id');
         }
     });
 

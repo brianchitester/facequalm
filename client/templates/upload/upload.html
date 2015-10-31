@@ -12,11 +12,13 @@
 
 {{#ionView}}
   {{#ionContent}}
-    <div class="match-img-holder">
-      <img class = "match-img" src="{{matchUrl}}">
+    <div class ="match-photo-wrapper">
+      <div class="match-img-holder">
+        <img class = "match-img" src="{{matchUrl}}">
+      </div>
+      {{> photo}}
     </div>
-    {{> photo}}
-      {{#each storedImages}}
+     <!--  {{#each storedImages}}
         {{> storedImage}}
       {{/each}}
 
@@ -29,7 +31,7 @@
         {{> newGame}}
         {{> leaveGame}}
       </div>
-
+ -->
    {{/ionContent}}
 {{/ionView}}
 </template>

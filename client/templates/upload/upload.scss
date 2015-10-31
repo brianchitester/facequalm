@@ -3,8 +3,8 @@
 		color: #FFF !important;
 	}
 	i {
-      color: #FFF;
-    }
+		color: #FFF;
+	}
 	.app-title {
 		font-size: 36px;
 		font-weight: 600;
@@ -15,23 +15,31 @@
 		margin-right: auto;
 	}
 	.match-img-holder {
-		margin: 25px;
+		flex: 3;
+
 		.match-img {
+			margin: 15px;
 			border-radius: 15px;
 			width: 300px;
 		}
 	}
-	.snap-pic{
+	.snap-pic {
 		background-color: #90CAF9;
 		width: 130px;
 		height: 130px;
-		border-radius: 150px;
 		margin: auto;
+		border-radius: 130px;
 		display: flex;
-		flex-flow: column wrap;
-		justify-content:center;
+		flex-direction: column;
+		justify-content: center;
 	}
-	.snap-pic:hover{
+	.snap-pic:hover {
 		background-color: #a4c2f4;
+	}
+	.match-photo-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 95%;
 	}
 }

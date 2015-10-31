@@ -14,11 +14,13 @@
 	{{#ionContent}}
 	 {{> profilelink}}
 
+   <div class ="list-create-wrapper">
       {{> gameList}}
 
-     <button id="create-game" data-ion-modal="inviteFriends" class="button button-large button-primary">
-        CREATE GAME
-    </button>
+        <button id="create-game" data-ion-modal="inviteFriends" class="button button-large button-primary">
+          CREATE GAME
+        </button>
+  </div>
 
 	{{/ionContent}}
 {{/ionView}}
@@ -41,22 +43,28 @@
 
     <div class ="game-list">
     {{#ionList}}
+     {{#if games.length}}
         {{#each games}}
           {{#if active}}
           <a href="upload/{{_id}}">
             {{#ionItem iconLeft=true id="my-id"}}
-                <h2>{{_id}}</h2>
+                <h3>{{_id}}</h3>
                 {{> ionIcon icon="ios-camera" }}
               {{/ionItem}}
             </a>
             {{else}}
               {{#ionItem iconLeft=true buttonRight=true id="my-id"}}
-                <h2>{{gameId}}</h2>
+                <h3>{{gameId}}</h3>
                 {{> ionIcon icon="ios-help" }}
                 <button class="button button-small button-calm" id={{gameId}}>Accept</button>
               {{/ionItem}}
           {{/if}}
         {{/each}}
+        {{else}}
+         {{#ionItem}}
+                <h3>No {{tabSelected}} games</h3>
+          {{/ionItem}}
+        {{/if}}
       {{/ionList}}
     </div>
 </template>
@@ -64,6 +72,7 @@
 
 <template name="inviteFriends">
   {{#ionModal title="SELECT FRIENDS"}}
+  <div class= "list-invite-wrapper">
     <div class ="friend-list">
     {{#ionContent}}
     {{#ionList}}
@@ -84,6 +93,7 @@
     <button id="find-friends" class="button button-secondary">
       FIND FRIENDS
     </button>
+  </div>
   </div>
   {{/ionModal}}
 </template>

@@ -5,11 +5,13 @@ $mockup-blue: #a4c2f4;
 $calm: #a4c2f4;
 $blue-deep: #90CAF9;
 $font-family: 'Open Sans', sans-serif;
-.home {
-  background-color: $mockup-blue;
 
+.home {
   a {
     color: #FFF !important;
+  }
+  .userinfo {
+    padding: 8px 8px 0px 8px;
   }
   .avatar-level-1 {
     background-color: $blue-deep;
@@ -21,8 +23,8 @@ $font-family: 'Open Sans', sans-serif;
     font-weight: 600;
   }
   .game-list {
-    height: 60%;
     background-color: #FFF;
+    flex: 1;
 
     a {
       text-decoration: none;
@@ -33,12 +35,17 @@ $font-family: 'Open Sans', sans-serif;
     a:active {
       text-decoration: none;
     }
+    h3 {
+      color: #90CAF9;
+    }
     .item {
       border: none;
+      color: #90CAF9;
       background-color: #E3F5FD;
     }
     .item:hover {
       background-color: #90CAF9;
+      color: #FFF !important;
     }
   }
   .modal {
@@ -56,7 +63,7 @@ $font-family: 'Open Sans', sans-serif;
   }
   .friend-list {
     height: 60%;
-
+    flex: 3;
     a {
       text-decoration: none;
     }
@@ -75,6 +82,7 @@ $font-family: 'Open Sans', sans-serif;
     }
   }
   .find-friends {
+    flex: 0;
     line-height: 3.5em;
     padding: 5em 0 0 0;
   }
@@ -103,19 +111,21 @@ $font-family: 'Open Sans', sans-serif;
     }
     .tab-item.active {
       background-color: #90CAF9;
-      color: white;
+      color: #FFF;
     }
     .tab-item:hover {
       background-color: #90CAF9;
-      color: white;
+      color: #FFF;
     }
   }
   .button-primary {
     border-radius: 15px;
     color: #FFF;
+    font-weight: 600;
     width: 60%;
     background-color: #90CAF9;
     border: none;
+    align-self: center;
   }
   .button-primary.active {
     background-color: #7CA6D6;
@@ -136,5 +146,18 @@ $font-family: 'Open Sans', sans-serif;
   .button-secondary:hover {
     background-color: #FEC303;
     color: #FFF;
+  }
+  .list-create-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+  }
+
+  .list-invite-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
   }
 }
