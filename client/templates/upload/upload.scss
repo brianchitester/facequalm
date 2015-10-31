@@ -1,7 +1,37 @@
 .upload {
-	.game-buttons { 
-	  width:95%;
-	  margin-left: auto;
-	  margin-right: auto;
-	}    
+	a {
+		color: #FFF !important;
+	}
+	i {
+      color: #FFF;
+    }
+	.app-title {
+		font-size: 36px;
+		font-weight: 600;
+	}
+	.game-buttons {
+		width: 95%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.match-img-holder {
+		margin: 25px;
+		.match-img {
+			border-radius: 15px;
+			width: 300px;
+		}
+	}
+	.snap-pic{
+		background-color: #90CAF9;
+		width: 130px;
+		height: 130px;
+		border-radius: 150px;
+		margin: auto;
+		display: flex;
+		flex-flow: column wrap;
+		justify-content:center;
+	}
+	.snap-pic:hover{
+		background-color: #a4c2f4;
+	}
 }

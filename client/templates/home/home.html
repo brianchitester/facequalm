@@ -2,7 +2,7 @@
 {{#contentFor "headerTitle"}}
   <h1 class="title">
   	<span class="header-logo-left"></span>
-  	<span>Home</span>
+  	<span class="app-title">HOME</span>
   </h1>
 {{/contentFor}}
 
@@ -16,7 +16,7 @@
 
       {{> gameList}}
 
-     <button id="create-game" data-ion-modal="inviteFriends" class="button button-large button-calm">
+     <button id="create-game" data-ion-modal="inviteFriends" class="button button-large button-primary">
         CREATE GAME
     </button>
 
@@ -27,15 +27,15 @@
 <template name="gameList">
     <div class="tabs">
     <button id="pending" class="tab-item">
-      PENDING INVITES
+      PENDING
     </button>
 
     <button id="active" class="tab-item">
-      ACTIVE GAMES
+      ACTIVE
     </button>
 
     <button id="completed" class="tab-item">
-      COMPLETED GAMES
+      COMPLETED
     </button>
     </div>
 
@@ -63,29 +63,26 @@
 
 
 <template name="inviteFriends">
-  {{#ionModal title="Select Friends"}}
-    <p>Select 2-5 Friends to start a Game!</p>
+  {{#ionModal title="SELECT FRIENDS"}}
     <div class ="friend-list">
     {{#ionContent}}
     {{#ionList}}
     		{{#each friends}}
     				{{#ionItem}}
-              <label class="checkbox">
   						  <input type="checkbox" name ="friends" value={{_id}}>
-  						</label>
               {{username}}
     				{{/ionItem}}
     		{{/each}}
   		{{/ionList}}
       {{/ionContent}}
       </div>
-  		<button id="start-game" class="button button-large button-calm" data-dismiss=modal>
+  		<button id="start-game" class="button button-large button-primary" data-dismiss=modal>
   		START GAME
 	</button>
   <div class="find-friends">
     Want more friends?     
-    <button id="find-friends" class="button button-energized">
-      Find Friends 
+    <button id="find-friends" class="button button-secondary">
+      FIND FRIENDS
     </button>
   </div>
   {{/ionModal}}

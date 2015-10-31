@@ -1,22 +1,83 @@
 @import '{seba:ionic-sass}/scss/ionic';
 @import '{seba:ionic-sass}/scss/ionicons/ionicons';
 
-
+$mockup-blue: #a4c2f4;
+$calm: #a4c2f4;
+$blue-deep: #90CAF9;
+$font-family: 'Open Sans', sans-serif;
 .home {
+  background-color: $mockup-blue;
 
+  a {
+    color: #FFF !important;
+  }
+  .avatar-level-1 {
+    background-color: $blue-deep;
+    width: 80px;
+    border-radius: 120px;
+  }
+  .app-title {
+    font-size: 36px;
+    font-weight: 600;
+  }
   .game-list {
     height: 60%;
-  }
+    background-color: #FFF;
 
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    a:active {
+      text-decoration: none;
+    }
+    .item {
+      border: none;
+      background-color: #E3F5FD;
+    }
+    .item:hover {
+      background-color: #90CAF9;
+    }
+  }
+  .modal {
+    background-color: #FFF;
+
+    i {
+      color: #FFF;
+    }
+    .title {
+      background-color: $blue-deep;
+      margin: 0px;
+      color: #FFF !important;
+      border: 0px;
+    }
+  }
   .friend-list {
     height: 60%;
+
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    a:active {
+      text-decoration: none;
+    }
+    .item {
+      border: none;
+      background-color: #E3F5FD;
+    }
+    .item:hover {
+      background-color: #90CAF9;
+    }
   }
-  
-  .find-friends{
+  .find-friends {
     line-height: 3.5em;
     padding: 5em 0 0 0;
   }
-
   .tab-buttons {
     button {
       width: 33%;
@@ -26,19 +87,54 @@
   .tabs {
     position: relative;
     background-color: transparent;
-    color: $calm;
+    border: none;
 
     .tab-item {
       width: 33%;
-      max-width: initial;
       font-weight: 600;
-      font-size: smaller;
+      max-width: initial;
       background-color: transparent;
-      border: solid $calm 1px;
+      color: $blue-deep;
+      border-top: solid $blue-deep 5px;
+      border-bottom: solid $blue-deep 5px;
+      border-left: none;
+      border-right: none;
+      border-radius: 0px;
     }
     .tab-item.active {
-      background-color: $calm;
+      background-color: #90CAF9;
       color: white;
     }
+    .tab-item:hover {
+      background-color: #90CAF9;
+      color: white;
+    }
+  }
+  .button-primary {
+    border-radius: 15px;
+    color: #FFF;
+    width: 60%;
+    background-color: #90CAF9;
+    border: none;
+  }
+  .button-primary.active {
+    background-color: #7CA6D6;
+  }
+  .button-primary:hover {
+    background-color: $mockup-blue;
+    color: #FFF;
+  }
+  .button-secondary {
+    border-radius: 15px;
+    color: #FFF;
+    background-color: #FCE850;
+    border: none;
+  }
+  .button-secondary.active {
+    background-color: #FEC303;
+  }
+  .button-secondary:hover {
+    background-color: #FEC303;
+    color: #FFF;
   }
 }
