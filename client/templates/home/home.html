@@ -48,15 +48,15 @@
           {{#if active}}
           <a id ="{{_id}}">
             {{#ionItem iconLeft=true id="my-id"}}
-                <h3>{{_id}}</h3>
+                <h3>{{creatorName}}'s game</h3>
                 {{> ionIcon icon="ios-camera" }}
               {{/ionItem}}
             </a>
             {{else}}
               {{#ionItem iconLeft=true buttonRight=true id="my-id"}}
-                <h3>{{gameId}}</h3>
+                <h3>{{creatorName}}'s game</h3>
                 {{> ionIcon icon="ios-help" }}
-                <button class="button button-small button-primary" id={{gameId}}>Accept</button>
+                <button class="button button-small button-primary-small" id={{gameId}}>Accept</button>
               {{/ionItem}}
           {{/if}}
         {{/each}}
@@ -78,9 +78,9 @@
     {{#ionList}}
     		{{#each friends}}
     				{{#ionItem}}
-            <label>
-  						  <input type="checkbox" name ="friends" value={{_id}}>
-              <span>{{username}}</span>
+				    <input type="checkbox" name ="friends" value={{_id}}>
+             <label for={{_id}}>
+             {{username}}
             </label>
     				{{/ionItem}}
     		{{/each}}

@@ -1,84 +1,112 @@
 <template name="vote">
-{{#contentFor "headerTitle"}}
-  <h1 class="title">
-    <span class="header-logo-left"></span>
-    <span class="app-title">VOTE</span>
-  </h1>
-{{/contentFor}}
+{{#if results}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">
+      <span class="header-logo-left"></span>
+      <span class="app-title">RESULTS</span>
+    </h1>
+  {{/contentFor}}
 
-{{#contentFor "headerButtonLeft"}}
-  {{>ionNavBackButton path="home" text=" "}}
-{{/contentFor}}
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="home" text=" "}}
+  {{/contentFor}}
 
-{{#ionView}}
-  {{#ionContent}}
+  {{#ionView}}
+    {{#ionContent}}
 
-    <div class ="match-photo-wrapper">
-      <div class="match-img-holder">
-        <img class = "match-img" src="{{matchUrl}}">
+      <div class ="match-photo-wrapper">
+        <div class="match-img-holder">
+          <img class = "match-img" src="{{matchUrl}}">
+        </div>
       </div>
-    </div>
-    <div class ="user-photo-wrapper">
-      {{#each storedImages}}
-        {{> storedImage}}
-      {{/each}}
-    </div>
-   {{/ionContent}}
-{{/ionView}}
-</template>
+
+      <h2>WINNER</h2>
+      <div class ="user-photo-wrapper">
+        {{#with results}}
+          {{> winner}}
+        {{/with}}
+      </div>
+     {{/ionContent}}
+  {{/ionView}}
+
+  {{else}}
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">
+      <span class="header-logo-left"></span>
+      <span class="app-title">VOTE</span>
+    </h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="home" text=" "}}
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+
+      <div class ="match-photo-wrapper">
+        <div class="match-img-holder">
+          <img class = "match-img" src="{{matchUrl}}">
+        </div>
+      </div>
+      <div class ="user-photo-wrapper">
+        {{#each storedImages}}
+          {{> storedImage}}
+        {{/each}}
+      </div>
+     {{/ionContent}}
+  {{/ionView}}
+{{/if}}
+  </template>
 
 
-<template name = "storedImage">
-  <div class="list card">
-    {{#if imageSource}}
-     <a data-id="{{_id}}" class="vote-button">
-      <div class="item item-avatar">
+  <template name = "storedImage">
+    <div class="list card">
+      {{#if imageSource}}
+       <a data-id="{{_id}}" class="vote-button">
+        <div class="item item-avatar">
+          {{> avatarimage}}
+          <p>{{creatorUserName}}</p>
+        </div>
+
+        <div class="item item-image">
+          <img src="{{imageSource}}">
+        </div>
+      </a>
+
+      {{else}}
+        <div class="item item-avatar">
         {{> avatarimage}}
-        <p>{{creatorUserName}}</p>
+        <p>Waiting on {{creatorUserName}}'s face...</p>
       </div>
 
       <div class="item item-image">
-        <img src="{{imageSource}}">
+       <section class="ctnr">
+          <div class="ldr">
+            <div class="ldr-blk"></div>
+            <div class="ldr-blk an_delay"></div>
+            <div class="ldr-blk an_delay"></div>
+            <div class="ldr-blk"></div>
+          </div>
+      </section>
       </div>
-    </a>
 
-    {{else}}
-      <div class="item item-avatar">
-      {{> avatarimage}}
-      <p>Waiting on {{creatorUserName}}'s face...</p>
+      {{/if}}
     </div>
+</template>
 
-    <div class="item item-image">
-     <section class="ctnr">
-        <div class="ldr">
-          <div class="ldr-blk"></div>
-          <div class="ldr-blk an_delay"></div>
-          <div class="ldr-blk an_delay"></div>
-          <div class="ldr-blk"></div>
+
+  <template name = "winner">
+    <div class="list card">
+       <a data-id="{{_id}}" class="vote-button">
+        <div class="item item-avatar">
+          {{> avatarimage}}
+          <p>{{creatorUserName}}</p>
         </div>
-    </section>
-    </div>
 
-    {{/if}}
-  </div>
-</template>
-
-
-<template name = "userPlaceholder">
-  <div class="list card">
-    <div class="item item-avatar">
-      {{> avatarimage}}
-      <h2>Creator: </h2>
-      <p>{{creatorUserName}}</p>
-    </div>
-
-    <div class="item item-image">
-      <img src="{{imageSource}}">
-    </div>
-
-    <a data-id="{{_id}}" class="vote-button item item-icon-left" href="#">
-      <i class="icon ion-checkmark-round balanced"></i>
-      Vote ({{voteCount}})
-    </a>
-  </div>
-</template>
+        <div class="item item-image">
+          <img src="{{imageSource}}">
+        </div>
+      </a>
+      </div>
+    </template>

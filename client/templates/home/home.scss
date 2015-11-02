@@ -42,10 +42,6 @@ $font-family: 'Open Sans', sans-serif;
       color: #90CAF9;
       background-color: #E3F5FD;
     }
-    .item:hover {
-      background-color: #90CAF9;
-      color: #FFF !important;
-    }
   }
   .modal {
     background-color: #FFF;
@@ -75,22 +71,6 @@ $font-family: 'Open Sans', sans-serif;
     .item {
       border: none;
       background-color: #E3F5FD;
-
-      input {
-        position: absolute;
-        top: -20px;
-      }
-      span {
-        width: 100%;
-        display:block;
-      }
-      input:checked + span {
-        background-color: #90CAF9;
-        color: #FFF;
-      }
-    }
-    .item:hover {
-      background-color: #90CAF9;
     }
   }
   .find-friends {
@@ -135,6 +115,14 @@ $font-family: 'Open Sans', sans-serif;
     color: #FFF;
     font-weight: 600;
     width: 60%;
+    background-color: #90CAF9;
+    border: none;
+    align-self: center;
+  }
+  .button-primary-small {
+    border-radius: 15px;
+    color: #FFF;
+    font-weight: 600;
     background-color: #90CAF9;
     border: none;
     align-self: center;

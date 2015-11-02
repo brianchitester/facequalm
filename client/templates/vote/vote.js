@@ -47,6 +47,19 @@ Template.vote.helpers({
     roundNumber: function() {
         var currentGame = Games.findOne();
         return currentGame.state;
+    },
+    results: function() {
+        var currentGame = Games.findOne();
+        var currentRound = Rounds.findOne({
+            gameId: currentGame._id,
+            roundNumber: currentGame.state
+        });
+        if(currentRound.result[0]){
+            return Images.findOne({
+                _id: currentRound.result[0]
+            });
+        }
+        return "";
     }
 });
 

@@ -122,6 +122,7 @@ if (Meteor.isServer) {
         createGame: function(userId) {
             var gameId = Games.insert({
                 creatorId: userId,
+                creatorName: Meteor.user().username,
                 userIds: [userId],
                 userNames: [Meteor.user().username],
                 state: 1,
@@ -248,6 +249,9 @@ if (Meteor.isServer) {
             var currentRound = Rounds.findOne({
                 _id: roundId
             });
+            var currentGame = Games.findOne({
+                _id: currentRound.gameId
+            });
             var voteMap = currentRound.imageToVotesMap;
             var images = Object.keys(voteMap);
             //Reduction that returns  an array of all userIds that have voted.
@@ -259,8 +263,23 @@ if (Meteor.isServer) {
                 Rounds.update({
                     _id: roundId
                 }, currentRound);
-            }
-            else{
+
+                var invitees = _.pluck(Invites.find({
+                    gameId: currentRound.gameId
+                }).fetch(), 'userName');
+
+                images = Object.keys(currentRound.imageToVotesMap);
+
+                var allUsers = _.union(currentGame.userNames, invitees);
+                if (votedUsers.length === allUsers.length - 1) {
+                    currentRound.result.push(_.reduce(images, function(memo, image) {
+                        return currentRound.imageToVotesMap[memo].length > currentRound.imageToVotesMap[image].length ? memo : image;
+                    }, images[0]));
+                    Rounds.update({
+                        _id: roundId
+                    }, currentRound);
+                }
+            } else {
                 //TODO - Remove existing vote
             }
         }
