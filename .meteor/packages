@@ -24,6 +24,7 @@ useraccounts:core
 mdg:camera
 andrei:iron-router-body-class
 meteoric:ionic
+meteoric:ionicons-sass
 seba:ionic-sass
 fourseven:scss
 useraccounts:ionic

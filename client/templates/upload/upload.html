@@ -18,49 +18,8 @@
       </div>
       {{> photo}}
     </div>
-     <!--  {{#each storedImages}}
-        {{> storedImage}}
-      {{/each}}
-
-      <h3>Users playing:</h3>
-      {{#each users}}
-        <li>{{this}}</li>
-      {{/each}}
-
-      <div class="game-buttons">
-        {{> newGame}}
-        {{> leaveGame}}
-      </div>
- -->
    {{/ionContent}}
 {{/ionView}}
-</template>
-
-<template name = "newGame">
-    <button class="button button-block button-calm">Start New Round</button>
-</template>
-
-<template name = "leaveGame">
-    <button class="button button-block button-assertive">Leave Game</button>
-</template>
-
-<template name = "storedImage">
-  <div class="list card">
-    <div class="item item-avatar">
-      {{> avatarimage}}
-      <h2>Creator: </h2>
-      <p>{{creatorUserName}}</p>
-    </div>
-
-    <div class="item item-image">
-      <img src="{{imageSource}}">
-    </div>
-
-    <a data-id="{{_id}}" class="vote-button item item-icon-left" href="#">
-      <i class="icon ion-checkmark-round balanced"></i>
-      Vote ({{voteCount}})
-    </a>
-  </div>
 </template>
 
 <template name="photo">

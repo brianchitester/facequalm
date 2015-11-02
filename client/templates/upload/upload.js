@@ -11,8 +11,8 @@ Template.upload.helpers({
                 $in: imageIds
             }
         }).fetch();
-        for(var i=0; i< images.length; i++){
-          images[i].voteCount = currentRound.imageToVotesMap[images[i]._id];
+        for (var i = 0; i < images.length; i++) {
+            images[i].voteCount = currentRound.imageToVotesMap[images[i]._id];
         }
         return images;
     },
@@ -51,7 +51,13 @@ Template.photo.events({
                     roundNumber: currentGame.state
                 });
 
-                Meteor.call('addImage', currentRound._id, data);
+                Meteor.call('addImage', currentRound._id, data, function(eror, data) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        Router.go('/vote/' + Games.findOne()._id);
+                    }
+                });
             } else {
                 console.log(error);
             }
@@ -59,17 +65,6 @@ Template.photo.events({
     }
 });
 
-
-Template.storedImage.events({
-    'click .vote-button': function(e) {
-        var currentGame = Games.findOne();
-        var currentRound = Rounds.findOne({
-            gameId: currentGame._id,
-            roundNumber: currentGame.state
-        });
-        Meteor.call("voteImage", currentRound._id, $(e.currentTarget).data().id);
-    }
-});
 
 Template.newGame.events({
     'click button': function() {
@@ -81,7 +76,7 @@ Template.newGame.events({
 
 Template.leaveGame.events({
     'click button': function() {
-        Meteor.call('leaveGame', Games.findOne()._id, function(){
+        Meteor.call('leaveGame', Games.findOne()._id, function() {
             Router.go('/');
         });
     }

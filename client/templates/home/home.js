@@ -1,6 +1,6 @@
     var gameDep = new Tracker.Dependency();
 
-
+    //HOME TEMPLATE
     Template.home.events({
         'click #pending': function() {
             $('.tab-item').removeClass('active');
@@ -16,9 +16,21 @@
             $('.tab-item').removeClass('active');
             $('#completed').toggleClass('active');
             gameDep.changed();
+        },
+        'click a': function(e) {
+            var targetGameId = $(e.currentTarget).attr('id');
+            Meteor.call('getGamePhaseForUser', targetGameId, function(error, results) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    Router.go('/' + results + '/' +
+                        targetGameId);
+                }
+            });
         }
     });
 
+    //GAME LIST TEMPLATE
     Template.gameList.onRendered(function() {
         $('#pending').toggleClass('active');
         gameDep.changed();
@@ -43,22 +55,24 @@
         completed: function() {
             return $('.active').attr('id') == 'completed';
         },
-        tabSelected: function(){
-             gameDep.depend();
-             return $('.active').attr('id');
+        tabSelected: function() {
+            gameDep.depend();
+            return $('.active').attr('id');
         }
     });
 
     Template.gameList.events({
-        'click button': function(e) {
-            Meteor.call('joinGame', $(e.currentTarget).attr('id'), function(error, results){
-                if(error){
+        'click .button-small': function(e) {
+            Meteor.call('joinGame', $(e.currentTarget).attr('id'), function(error, results) {
+                if (error) {
                     console.log(error);
                 }
             });
         }
     });
 
+
+    //INVITE FRIENDS MODAL
     Template.inviteFriends.helpers({
         friends: function() {
             var friends = Meteor.user().profile.friends;
@@ -69,16 +83,16 @@
     Template.inviteFriends.events({
         'click #start-game': function() {
             var selectedFriends = $('input[type=checkbox]:checked');
-                Meteor.call('createGame', Meteor.userId(), function(error, results) {
-                    if (error) {
-                        console.log(error.reason)
-                    } else {
-                        _.each(selectedFriends, function(friend) {
-                            Meteor.call('inviteFriend', results, friend.value);
-                        });
-                        Router.go('/upload/' + results);
-                    }
-                });
+            Meteor.call('createGame', Meteor.userId(), function(error, results) {
+                if (error) {
+                    console.log(error.reason)
+                } else {
+                    _.each(selectedFriends, function(friend) {
+                        Meteor.call('inviteFriend', results, friend.value);
+                    });
+                    Router.go('/upload/' + results);
+                }
+            });
         },
         'click #find-friends': function() {
             IonPopup.prompt({

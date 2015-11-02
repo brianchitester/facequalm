@@ -56,6 +56,7 @@ mdg:camera@1.2.0
 meteor@1.1.9
 meteor-base@1.0.1
 meteoric:ionic@0.1.19
+meteoric:ionicons-sass@0.1.7
 minifiers@1.1.7
 minimongo@1.0.10
 mobile-experience@1.0.1

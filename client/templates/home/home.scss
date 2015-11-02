@@ -1,6 +1,5 @@
 @import '{seba:ionic-sass}/scss/ionic';
 @import '{seba:ionic-sass}/scss/ionicons/ionicons';
-
 $mockup-blue: #a4c2f4;
 $calm: #a4c2f4;
 $blue-deep: #90CAF9;
@@ -62,8 +61,8 @@ $font-family: 'Open Sans', sans-serif;
     }
   }
   .friend-list {
-    height: 60%;
-    flex: 3;
+    flex: 4;
+
     a {
       text-decoration: none;
     }
@@ -76,6 +75,19 @@ $font-family: 'Open Sans', sans-serif;
     .item {
       border: none;
       background-color: #E3F5FD;
+
+      input {
+        position: absolute;
+        top: -20px;
+      }
+      span {
+        width: 100%;
+        display:block;
+      }
+      input:checked + span {
+        background-color: #90CAF9;
+        color: #FFF;
+      }
     }
     .item:hover {
       background-color: #90CAF9;
@@ -153,11 +165,10 @@ $font-family: 'Open Sans', sans-serif;
     justify-content: center;
     height: 80%;
   }
-
   .list-invite-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 80%;
+    height: 85%;
   }
 }
