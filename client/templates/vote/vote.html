@@ -3,7 +3,7 @@
   {{#contentFor "headerTitle"}}
     <h1 class="title">
       <span class="header-logo-left"></span>
-      <span class="app-title">RESULTS</span>
+      <span class="app-title">WINNER</span>
     </h1>
   {{/contentFor}}
 
@@ -19,8 +19,6 @@
           <img class = "match-img" src="{{matchUrl}}">
         </div>
       </div>
-
-      <h2>WINNER</h2>
       <div class ="user-photo-wrapper">
         {{#with results}}
           {{> winner}}
@@ -63,7 +61,6 @@
   <template name = "storedImage">
     <div class="list card">
       {{#if imageSource}}
-       <a data-id="{{_id}}" class="vote-button">
         <div class="item item-avatar">
           {{> avatarimage}}
           <p>{{creatorUserName}}</p>
@@ -72,24 +69,23 @@
         <div class="item item-image">
           <img src="{{imageSource}}">
         </div>
-      </a>
+        <button data-id="{{_id}}" class= "vote-button button-primary">VOTE</button>
+
 
       {{else}}
         <div class="item item-avatar">
         {{> avatarimage}}
-        <p>Waiting on {{creatorUserName}}'s face...</p>
+        <p>Waiting ({{creatorUserName}})</p>
       </div>
 
-      <div class="item item-image">
-       <section class="ctnr">
           <div class="ldr">
             <div class="ldr-blk"></div>
             <div class="ldr-blk an_delay"></div>
             <div class="ldr-blk an_delay"></div>
             <div class="ldr-blk"></div>
           </div>
-      </section>
-      </div>
+
+
 
       {{/if}}
     </div>
@@ -97,7 +93,7 @@
 
 
   <template name = "winner">
-    <div class="list card">
+    <div class="list card-winner">
        <a data-id="{{_id}}" class="vote-button">
         <div class="item item-avatar">
           {{> avatarimage}}

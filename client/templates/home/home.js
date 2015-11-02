@@ -17,7 +17,7 @@
             $('#completed').toggleClass('active');
             gameDep.changed();
         },
-        'click a': function(e) {
+        'click .enter-game': function(e) {
             var targetGameId = $(e.currentTarget).attr('id');
             Meteor.call('getGamePhaseForUser', targetGameId, function(error, results) {
                 if (error) {

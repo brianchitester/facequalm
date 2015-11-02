@@ -71,8 +71,14 @@ Template.storedImage.events({
             gameId: currentGame._id,
             roundNumber: currentGame.state
         });
-        Meteor.call("voteImage", currentRound._id, $(e.currentTarget).data().id);
-        $(e.currentTarget).parent().addClass('selected');
+        Meteor.call("voteImage", currentRound._id, $(e.currentTarget).data().id, function(error, results){
+            if(error){
+
+            }else{
+                $(e.currentTarget).addClass('selected');
+            }
+        });
+        
     }
 });
 
@@ -86,7 +92,7 @@ Template.storedImage.onRendered(function() {
     var imageIds = Object.keys(currentRound.imageToVotesMap);
     for (var i = 0; i < imageIds.length; i++) {
         if (_.contains(currentRound.imageToVotesMap[imageIds[i]], Meteor.userId())) {
-            $('a[data-id=' + imageIds[i] + ']').parent().addClass('selected');
+            $('button[data-id=' + imageIds[i] + ']').addClass('selected');
         }
     }
 });

@@ -281,6 +281,8 @@ if (Meteor.isServer) {
                 }
             } else {
                 //TODO - Remove existing vote
+                throw new Meteor.Error("already-voted", 'User already voted', 'you cannot vote more than once');
+
             }
         }
     });
