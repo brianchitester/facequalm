@@ -39,8 +39,10 @@ var context, canvas;
 Template.photo.events({
     'click #snap': function() {
         var cameraOptions = {
-            height: 240,
-            width: 240
+            height: 480,
+            width: 480,
+            cameraDirection: 1,
+            quality: 75
         };
 
         MeteorCamera.getPicture(cameraOptions, function(error, data) {
