@@ -63,6 +63,19 @@ Template.vote.helpers({
     }
 });
 
+Template.vote.events({
+    'click .new-session': function(e) {
+        var currentGame = Games.findOne();
+        var currentRound = Rounds.findOne({
+            gameId: currentGame._id,
+            roundNumber: currentGame.state
+        });
+        Meteor.call("newSession", currentGame._id, function() {
+            Router.go('/upload/' + Games.findOne()._id);
+        });
+        
+    }
+});
 
 Template.storedImage.events({
     'click .vote-button': function(e) {
@@ -78,8 +91,8 @@ Template.storedImage.events({
                 $(e.currentTarget).addClass('selected');
             }
         });
-        
     }
+
 });
 
 //highlight the picture you voted for
