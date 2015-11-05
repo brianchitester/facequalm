@@ -1,0 +1,108 @@
+<template name="vote">
+{{#if results}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">
+      <span class="header-logo-left"></span>
+      <span class="app-title">WINNER</span>
+    </h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="home" text=" "}}
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+
+      <div class ="match-photo-wrapper">
+        <div class="match-img-holder">
+          <img class = "match-img" src="{{matchUrl}}">
+        </div>
+      </div>
+      <div class ="user-photo-wrapper">
+        {{#with results}}
+          {{> winner}}
+        {{/with}}
+      </div>
+     {{/ionContent}}
+  {{/ionView}}
+
+  {{else}}
+    {{#contentFor "headerTitle"}}
+    <h1 class="title">
+      <span class="header-logo-left"></span>
+      <span class="app-title">VOTE</span>
+    </h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="home" text=" "}}
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+
+      <div class ="match-photo-wrapper">
+        <div class="match-img-holder">
+          <img class = "match-img" src="{{matchUrl}}">
+        </div>
+      </div>
+      <div class ="user-photo-wrapper">
+        {{#each storedImages}}
+          {{> storedImage}}
+        {{/each}}
+      </div>
+     {{/ionContent}}
+  {{/ionView}}
+{{/if}}
+  </template>
+
+
+  <template name = "storedImage">
+    <div class="list card">
+      {{#if imageSource}}
+        <div class="item item-avatar">
+          {{> avatarimage}}
+          <p>{{creatorUserName}}</p>
+        </div>
+
+        <div class="item item-image">
+          <img src="{{imageSource}}">
+        </div>
+        <button data-id="{{_id}}" class= "vote-button button-primary">VOTE</button>
+
+
+      {{else}}
+        <div class="item item-avatar">
+        {{> avatarimage}}
+        <p>Waiting ({{creatorUserName}})</p>
+      </div>
+
+          <div class="ldr">
+            <div class="ldr-blk"></div>
+            <div class="ldr-blk an_delay"></div>
+            <div class="ldr-blk an_delay"></div>
+            <div class="ldr-blk"></div>
+          </div>
+
+
+
+      {{/if}}
+    </div>
+</template>
+
+
+  <template name = "winner">
+    <div class="list card-winner">
+       <a data-id="{{_id}}" class="vote-button">
+        <div class="item item-avatar">
+          {{> avatarimage}}
+          <p>{{creatorUserName}}</p>
+        </div>
+
+        <div class="item item-image">
+          <img src="{{imageSource}}">
+        </div>
+      </a>
+      </div>
+    </template>

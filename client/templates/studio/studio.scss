@@ -1,11 +1,10 @@
-@import '{seba:ionic-sass}/scss/ionic';
-@import '{seba:ionic-sass}/scss/ionicons/ionicons';
 
 .Studio {
 	overflow-x: hidden;
 	overflow-y: hidden;
     #studioCanvas
     {
-    	background-color: $calm;
+    	background-color: #90CAF9;
+    	border-radius: 15px;
     } 
 }

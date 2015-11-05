@@ -2,7 +2,7 @@
 {{#contentFor "headerTitle"}}
   <h1 class="title">
   	<span class="header-logo-left"></span>
-  	<span>Home</span>
+  	<span class="app-title">HOME</span>
   </h1>
 {{/contentFor}}
 
@@ -14,11 +14,13 @@
 	{{#ionContent}}
 	 {{> profilelink}}
 
+   <div class ="list-create-wrapper">
       {{> gameList}}
 
-     <button id="create-game" data-ion-modal="inviteFriends" class="button button-large button-calm">
-        CREATE GAME
-    </button>
+        <button id="create-game" data-ion-modal="inviteFriends" class="button button-large button-primary">
+          CREATE GAME
+        </button>
+  </div>
 
 	{{/ionContent}}
 {{/ionView}}
@@ -27,66 +29,73 @@
 <template name="gameList">
     <div class="tabs">
     <button id="pending" class="tab-item">
-      PENDING INVITES
+      PENDING
     </button>
 
     <button id="active" class="tab-item">
-      ACTIVE GAMES
+      ACTIVE
     </button>
 
     <button id="completed" class="tab-item">
-      COMPLETED GAMES
+      COMPLETED
     </button>
     </div>
 
     <div class ="game-list">
     {{#ionList}}
+     {{#if games.length}}
         {{#each games}}
           {{#if active}}
-          <a href="upload/{{_id}}">
+          <a class ="enter-game" id ="{{_id}}">
             {{#ionItem iconLeft=true id="my-id"}}
-                <h2>{{_id}}</h2>
+                <h3>{{creatorName}}'s game</h3>
                 {{> ionIcon icon="ios-camera" }}
               {{/ionItem}}
             </a>
             {{else}}
               {{#ionItem iconLeft=true buttonRight=true id="my-id"}}
-                <h2>{{gameId}}</h2>
+                <h3>{{creatorName}}'s game</h3>
                 {{> ionIcon icon="ios-help" }}
-                <button class="button button-small button-calm" id={{gameId}}>Accept</button>
+                <button class="button button-small button-primary-small" id={{gameId}}>Accept</button>
               {{/ionItem}}
           {{/if}}
         {{/each}}
+        {{else}}
+         {{#ionItem}}
+                <h3>No {{tabSelected}} games</h3>
+          {{/ionItem}}
+        {{/if}}
       {{/ionList}}
     </div>
 </template>
 
 
 <template name="inviteFriends">
-  {{#ionModal title="Select Friends"}}
-    <p>Select 2-5 Friends to start a Game!</p>
+  {{#ionModal title="SELECT FRIENDS"}}
+  <div class= "list-invite-wrapper">
     <div class ="friend-list">
     {{#ionContent}}
     {{#ionList}}
     		{{#each friends}}
     				{{#ionItem}}
-              <label class="checkbox">
-  						  <input type="checkbox" name ="friends" value={{_id}}>
-  						</label>
-              {{username}}
+				    <input type="checkbox" name ="friends" value={{_id}}>
+             <label for={{_id}}>
+             {{username}}
+            </label>
     				{{/ionItem}}
     		{{/each}}
   		{{/ionList}}
       {{/ionContent}}
       </div>
-  		<button id="start-game" class="button button-large button-calm" data-dismiss=modal>
+  		<button id="start-game" class="button button-large button-primary" data-dismiss=modal>
   		START GAME
 	</button>
   <div class="find-friends">
     Want more friends?     
-    <button id="find-friends" class="button button-energized">
-      Find Friends 
+    <button id="find-friends" class="button button-secondary">
+      FIND FRIENDS
     </button>
+  </div>
   </div>
   {{/ionModal}}
 </template>

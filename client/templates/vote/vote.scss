@@ -1,12 +1,151 @@
 .vote {
-    
+	a {
+		color: #FFF !important;
+	}
+	i {
+		color: #FFF;
+	}
+	h2 {
+		font-weight: 600;
+		color: #90CAF9;
+	}
+	.app-title {
+		font-size: 36px;
+		font-weight: 600;
+	}
+	.match-photo-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		background-color: #E3F5FD;
 
+		.match-img-holder {
+			flex: 1;
 
+			.match-img {
+				margin: 15px;
+				border-radius: 15px;
+				width: 150px;
+			}
+		}
+	}
+	.user-photo-wrapper {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
 
+		.card{
+			width: 40%;
+			border-radius: 5px;
+			margin: 5px;
+			background-color: #E3F5FD;
+			box-shadow: none;
+			display: flex;
+			flex-flow: column wrap;
 
+			.item-avatar {
+				padding: 5px 0 0 0;
+				background-color: #E3F5FD;
+				margin: 0px;
 
+				p {
+					color: #90CAF9;
+					font-weight: 600;
+				}
+				.avatar-level-1 {
+					position: relative;
+					top: 0;
+					left: 0;
+					background-color: #90CAF9;
+				}
+			}
+		}
 
+		.card-winner{
+			width: 40%;
+			border-radius: 5px;
+			margin: 5px;
+			background-color: #E3F5FD;
+			box-shadow: none;
+			display: flex;
+			flex-flow: column wrap;
+			flex: 1;
 
+			.item-avatar {
+				padding: 5px 0 0 0;
+				background-color: #E3F5FD;
+				margin: 0px;
 
-    
+				p {
+					color: #90CAF9;
+					font-weight: 600;
+				}
+				.avatar-level-1 {
+					position: relative;
+					top: 0;
+					left: 0;
+					background-color: #90CAF9;
+				}
+			}
+		}
+	}
+	@keyframes pulse {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	.ctnr {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		background-color: #E3F5FD;
+	}
+	.ldr {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+		margin: auto;
+		width: 6em;
+		height: 6em;
+	}
+	.ldr-blk {
+		height: 35%;
+		width: 35%;
+		animation: pulse 0.75s ease-in infinite alternate;
+		background-color: darken(#E3F5FD, 15%);
+	}
+	.an_delay {
+		animation-delay: 0.75s;
+	}
+	.button-primary {
+		color: #FFF;
+		font-weight: 600;
+		width: 100%;
+		background-color: #90CAF9;
+		border: none;
+		align-self: center;
+	}
+	.button-primary-small {
+		border-radius: 15px;
+		color: #FFF;
+		font-weight: 600;
+		background-color: #90CAF9;
+		border: none;
+		align-self: center;
+	}
+	.button-primary.active {
+		background-color: #7CA6D6;
+	}
+	.button-primary:hover {
+		background-color: #7CA6D6;
+		color: #FFF;
+	}
+}
+.selected {
+	background-color: #90CF8E !important;
 }

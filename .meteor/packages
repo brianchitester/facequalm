@@ -16,7 +16,6 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-twbs:bootstrap
 iron:router
 accounts-password
 accounts-facebook
@@ -25,6 +24,7 @@ useraccounts:core
 mdg:camera
 andrei:iron-router-body-class
 meteoric:ionic
-seba:ionic-sass
-fourseven:scss@3.4.0-beta1
+hashwin:ionic-sass
+hashwin:ionicons-sass
+fourseven:scss
 useraccounts:ionic

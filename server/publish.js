@@ -15,11 +15,17 @@ if (Meteor.isServer) {
         });
     });
 
-    Meteor.publish("invites", function() {
+    Meteor.publish("invites", function(gameId) {
         var currentUser = this.userId;
-        return Invites.find({
-            userId: this.userId
-        });
+        if (gameId) {
+            return Invites.find({
+                gameId: gameId
+            });
+        } else {
+            return Invites.find({
+                userId: this.userId
+            });
+        }
     });
 
     //TODO - only return a game's images
