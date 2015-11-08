@@ -71,29 +71,29 @@
 
 
 <template name="inviteFriends">
-  {{#ionModal title="SELECT FRIENDS"}}
+  {{#ionModal title="Select friends"}}
   <div class= "list-invite-wrapper">
     <div class ="friend-list">
-    {{#ionContent}}
-    {{#ionList}}
-    		{{#each friends}}
-    				{{#ionItem}}
-				    <input type="checkbox" name ="friends" value={{_id}}>
-             <label for={{_id}}>
-             {{username}}
-            </label>
-    				{{/ionItem}}
-    		{{/each}}
-  		{{/ionList}}
+      {{#ionContent}}
+        <ul class="list list-inset">
+          {{#each friends}}
+            <li class="item item-checkbox">
+              <label class="checkbox">
+                <input type="checkbox" name="friends" value={{_id}}/>
+              </label>
+              {{username}}
+            </li>
+          {{/each}}
+        </ul>
       {{/ionContent}}
-      </div>
-  		<button id="start-game" class="button button-large button-primary" data-dismiss=modal>
-  		START GAME
-	</button>
+    </div>
+		<button id="start-game" class="button button-large button-primary" data-dismiss=modal>
+      Start game
+  	</button>
   <div class="find-friends">
-    Want more friends?     
-    <button id="find-friends" class="button button-secondary">
-      FIND FRIENDS
+    Want more friends? <br/>     
+    <button id="find-friends" class="button button-large button-secondary">
+      Find friends
     </button>
   </div>
   </div>

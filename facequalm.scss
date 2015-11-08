@@ -26,7 +26,7 @@ body {
 .bar-primary {
 	background-color: $blue-deep;
 }
-.bar-header a.button{
+.bar-header a.button, .bar-header button.button-clear{
 	color: #FFFFFF;
 }
 .content {
@@ -44,6 +44,13 @@ body {
 	background-color: $calm;
 	width: 40px;
 }
+.popup {
+  padding: 5px;
+}
+.popup-body input {
+  padding: 10px;
+}
+
 // .header-logo-left {
 	// 	background-size: 40px;
 	// 	display: inline-block;
