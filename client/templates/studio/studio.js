@@ -24,14 +24,14 @@ var getPageCoords = function(e) {
 
 Template.studio.events({
     'mousedown #studioCanvas, touchstart #studioCanvas': function(e){
-		context.strokeStyle = "#FFF";
-		context.lineJoin = "round";
-		context.lineWidth = 5;
-		context.beginPath();
-		var offset = canvas.offset();
-		var pageCoords = getPageCoords(e);
-		context.moveTo(pageCoords.x - offset.left, pageCoords.y - offset.top);
-		dragging = true;
+  		context.strokeStyle = "#FFF";
+  		context.lineJoin = "round";
+  		context.lineWidth = 5;
+  		context.beginPath();
+  		var offset = canvas.offset();
+  		var pageCoords = getPageCoords(e);
+  		context.moveTo(pageCoords.x - offset.left, pageCoords.y - offset.top);
+  		dragging = true;
     },
     'mousemove #studioCanvas': function(e){
 		if (dragging) {
