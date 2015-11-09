@@ -63,10 +63,6 @@ Template.gameList.helpers({
 
 Template.gameList.events({
     'click #joinGame': function(e) {
-        Meteor.call('joinGame', $(e.currentTarget).attr('gameId'), function(error, results) {
-            if (error) {
-                console.log(error);
-            }
-        });
+        Router.go("/upload/" + $(e.target).attr("gameId"));
     }
 });
