@@ -197,7 +197,6 @@ if (Meteor.isServer) {
             var friend = Meteor.users.findOne({
                 _id: friendId
             });
-
             Invites.insert({
                 gameId: gameId,
                 creator: Meteor.userId,

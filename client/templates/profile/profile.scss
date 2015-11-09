@@ -1,0 +1,27 @@
+.Profile {
+  .padding > .list {
+    margin: 40px 25px 0px 25px;
+
+    .item-divider {
+      padding: 15px;
+    }
+  }
+
+  .profile-button {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .list.at-form {
+    .at-input > label {
+      display: none;
+    }
+  }
+
+  .at-pwd-form {
+    .padding {
+      margin-top: 10px;
+      padding: 0px;
+    }
+  }
+}

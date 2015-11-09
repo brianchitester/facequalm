@@ -1,12 +1,14 @@
 .register {
-    
+  label.input-label {
+    display: none;
+  } 
 
+  .item-input input {
+    padding: 25px;
+  }
 
-
-
-
-
-
-
-    
+  .item.item-divider {
+    padding-top: 18px;
+    padding-bottom: 16px;
+  }
 }
