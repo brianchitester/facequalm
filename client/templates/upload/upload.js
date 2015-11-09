@@ -34,35 +34,51 @@ Template.upload.helpers({
     }
 });
 
-var context, canvas;
+Template.photo.created = function() {
+    // used to toggle video
+    // only used in the browser
+    this.takePicture = new ReactiveVar(false);
+};
+
 
 Template.photo.events({
-    'click #snap': function() {
-        var cameraOptions = {
-            height: 480,
-            width: 480,
-            cameraDirection: 1,
-            quality: 75
-        };
-
-        MeteorCamera.getPicture(cameraOptions, function(error, data) {
-            if (!error) {
-                var currentGame = Games.findOne();
-                var currentRound = Rounds.findOne({
-                    gameId: currentGame._id,
-                    roundNumber: currentGame.state
-                });
-
-                Meteor.call('addImage', currentRound._id, data, function(eror, data) {
-                    if (error) {
-                        console.log(error);
-                    } else {
-                        Router.go('/vote/' + Games.findOne()._id);
-                    }
-                });
-            } else {
-                console.log(error);
-            }
-        });
+    'click #snap': function(e, template) {
+        if(Meteor.isCordova) {
+            UploadCamera.cordovaCapture(function(data) {
+                addImage(data);
+            });
+        } else {
+            template.takePicture.set(true);
+            UploadCamera.startBrowserCapture();
+        }
+    },
+    // only called for browser camera
+    'click #takePic': function(e, template) {
+        addImage(UploadCamera.browserCapture());
+        template.takePicture.set(false);
     }
 });
+
+Template.photo.helpers({
+    showVideo: function() {
+        return !Meteor.isCordova;
+    },
+    notTakingPic: function() {
+        return !Template.instance().takePicture.get();
+    },
+});
+
+var addImage = function(data) {
+    var currentGame = Games.findOne();
+    var currentRound = Rounds.findOne({
+        gameId: currentGame._id,
+        roundNumber: currentGame.state
+    });
+    Meteor.call("addImage", currentRound._id, data, function(error, data) {
+        if (error) {
+            console.log(error);
+        } else {
+            Router.go("/vote/" + Games.findOne()._id);
+        }
+    });
+};
