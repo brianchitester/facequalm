@@ -16,10 +16,7 @@
 
    <div class ="list-create-wrapper">
       {{> gameList}}
-
-        <button id="create-game" data-ion-modal="createGame" class="button button-large button-primary">
-          CREATE GAME
-        </button>
+      <a id="create-game" class="button button-large button-primary" href="{{pathFor route='createGame'}}">CREATE GAME</a>
   </div>
 
 	{{/ionContent}}
@@ -56,7 +53,7 @@
               {{#ionItem iconLeft=true buttonRight=true id="my-id"}}
                 <h3>{{creatorName}}'s game</h3>
                 {{> ionIcon icon="ios-help" }}
-                <button class="button button-small button-primary-small" id={{gameId}}>Accept</button>
+                <button class="button button-small button-primary-small" id="joinGame" gameId="{{gameId}}">Accept</button>
               {{/ionItem}}
           {{/if}}
         {{/each}}

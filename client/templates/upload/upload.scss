@@ -1,6 +1,6 @@
 .upload {
 	a {
-		color: #FFF !important;
+		color: #FFF;
 	}
 	i {
 		color: #FFF;
@@ -41,5 +41,20 @@
 		flex-direction: column;
 		justify-content: center;
 		height: 95%;
+	}
+	video {
+		width: 300px;
+		margin: auto;
+		margin-bottom: 10px;
+	}
+
+	#takePic {
+		padding-top: 8px;
+		width: 200px;
+		display: inline-block;
+		margin: auto;
+		i {
+			font-size: 40px;
+		}
 	}
 }

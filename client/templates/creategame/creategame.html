@@ -1,5 +1,21 @@
 <template name="createGame">
-  {{#ionModal title="Create Game"}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">
+      <span class="header-logo-left"></span>
+      <span class="app-title">Create game</span>
+    </h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonLeft"}}
+    {{> ionNavBackButton class="btn-positive" path="home" text=""}}
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+    {{> atNavButton}}
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
       <div class="item item-divider">
         Choose Players
       </div>
@@ -7,11 +23,11 @@
       <div class= "list-invite-wrapper">
         <div class ="friend-list">
 
-            <ul class="list list">
+            <ul class="list list-inset">
               {{#each friends}}
                 <li class="item item-checkbox">
                   <label class="checkbox">
-                    <input type="checkbox" name="friends" value={{_id}}/>
+                    <input type="checkbox" name="friends" value="{{_id}}"/>
                   </label>
                   {{username}}
                 </li>
@@ -40,5 +56,6 @@
       <button id="start-game" class="button button-large button-primary" data-dismiss=modal>
         Start game
       </button>
-  {{/ionModal}}
+    {{/ionContent}}
+  {{/ionView}}
 </template>
