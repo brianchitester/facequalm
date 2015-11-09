@@ -115,15 +115,18 @@ if (Meteor.isServer) {
             });
         },
         //Creates new game with the given user ID as the creator
-        //TODO - Take config param
-        createGame: function(userId) {
+        createGame: function(userId, config) {
             var gameId = Games.insert({
                 creatorId: userId,
                 creatorName: Meteor.user().username,
                 userIds: [userId],
                 userNames: [Meteor.user().username],
                 state: 1,
-                config: {},
+                config: { 
+                    numRounds: config.numRounds || 1,
+                    roundTime: config.roundTime || (60*60*24),
+                    photoSet: config.photoSet || 1
+                },
                 name: ''
             });
 
