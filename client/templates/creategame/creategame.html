@@ -1,0 +1,44 @@
+<template name="createGame">
+  {{#ionModal title="Create Game"}}
+      <div class="item item-divider">
+        Choose Players
+      </div>
+
+      <div class= "list-invite-wrapper">
+        <div class ="friend-list">
+
+            <ul class="list list">
+              {{#each friends}}
+                <li class="item item-checkbox">
+                  <label class="checkbox">
+                    <input type="checkbox" name="friends" value={{_id}}/>
+                  </label>
+                  {{username}}
+                </li>
+              {{/each}}
+            </ul>
+        </div>
+      </div>
+
+      <div class="find-friends">
+        Want more friends? <br/>     
+        <button id="find-friends" class="button button-large button-secondary">
+          Find friends
+        </button>
+      </div>
+
+      <div class="item item-divider">
+        Number of Rounds: {{ numRounds }}
+      </div>
+      
+      <div class="list">
+        <div class="item range range-positive">
+          <input id="round-num-selector" type="range" name="Number of Rounds" min="1" max="10" value="3">
+        </div>
+      </div>
+
+      <button id="start-game" class="button button-large button-primary" data-dismiss=modal>
+        Start game
+      </button>
+  {{/ionModal}}
+</template>

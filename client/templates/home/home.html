@@ -17,7 +17,7 @@
    <div class ="list-create-wrapper">
       {{> gameList}}
 
-        <button id="create-game" data-ion-modal="inviteFriends" class="button button-large button-primary">
+        <button id="create-game" data-ion-modal="createGame" class="button button-large button-primary">
           CREATE GAME
         </button>
   </div>
@@ -67,35 +67,4 @@
         {{/if}}
       {{/ionList}}
     </div>
-</template>
-
-
-<template name="inviteFriends">
-  {{#ionModal title="Select friends"}}
-  <div class= "list-invite-wrapper">
-    <div class ="friend-list">
-      {{#ionContent}}
-        <ul class="list list-inset">
-          {{#each friends}}
-            <li class="item item-checkbox">
-              <label class="checkbox">
-                <input type="checkbox" name="friends" value={{_id}}/>
-              </label>
-              {{username}}
-            </li>
-          {{/each}}
-        </ul>
-      {{/ionContent}}
-    </div>
-		<button id="start-game" class="button button-large button-primary" data-dismiss=modal>
-      Start game
-  	</button>
-  <div class="find-friends">
-    Want more friends? <br/>     
-    <button id="find-friends" class="button button-large button-secondary">
-      Find friends
-    </button>
-  </div>
-  </div>
-  {{/ionModal}}
 </template>
