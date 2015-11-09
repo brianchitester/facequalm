@@ -16,26 +16,40 @@
 
 {{#ionView}}
   {{#ionContent}}
-    <h3>{{user}}</h3>
-    <div class="item friends-list">
-      <label>Friends</label>
-      {{#ionList}}
-        {{#each friends}}
-          {{username}}
-        {{/each}}
-      {{/ionList}}
-      <button id="add-friend">add friend</button>
-    </div>
-    <div class="at-input item item-input item-text-wrap item-stacked-label">
-        <label class="input-label" for="profilename">
-            Change display name
-        </label>
-        <input id="profilename" placeholder="New Display Name" autocapitalize="none" autocorrect="off">  
-        <button id="change-name">Submit</button>
-    </div>
-    {{> atForm state='changePwd'}}
-    <div class="padding">
-        <button class="button button-block button-energized" id="create-avatar">Create Avatar</button>
+    <div class="padding at-form">
+      <h3>{{user}}</h3>
+      <div class="padding profile-button">
+        <button class="at-btn button button-block button-energized" id="create-avatar">Create Avatar</button>
+      </div>
+      <div class="list friends-list">
+        <div class="item item-divider">
+          Friends
+        </div>
+        <div class="item item-text-wrap">
+          {{#ionList}}
+            {{#each friends}}
+              {{username}}
+            {{/each}}
+          {{/ionList}}
+        </div>
+      </div>
+      <div class="padding profile-button">
+        <button id="add-friend" class="at-btn button button-block button-positive">Add friend</button>
+      </div>
+
+      <div class="list">
+        <div class="item item-divider">
+          Change display name
+        </div>
+        <div class="at-input item item-input item-text-wrap item-stacked-label padding">
+            <input id="profilename" placeholder="New Display Name" autocapitalize="none" autocorrect="off">  
+        </div>
+      </div>
+      <div class="padding profile-button">
+        <button id="change-name" class="at-btn button button-block button-positive">Change</button>
+      </div>
+
+      {{> atForm state='changePwd'}}
     </div>
    {{/ionContent}}
 {{/ionView}}

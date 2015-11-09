@@ -1,11 +1,13 @@
 <template name="register">
-{{#contentFor "headerTitle"}}
-  <h1 class="title">FaceQualm</h1>
-{{/contentFor}}
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">FaceQualm</h1>
+  {{/contentFor}}
 
-{{#ionView}}
-	{{#ionContent}}
-		{{> atForm}}
-	 {{/ionContent}}
-{{/ionView}}
+  {{#ionView}}
+  	{{#ionContent}}
+      <div class="register">
+        {{> atForm}}
+      </div>
+  	 {{/ionContent}}
+  {{/ionView}}
 </template>
