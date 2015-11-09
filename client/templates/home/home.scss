@@ -39,41 +39,6 @@ $font-family: 'Open Sans', sans-serif;
       background-color: #E3F5FD;
     }
   }
-  .modal {
-    background-color: #FFF;
-
-    i {
-      color: #FFF;
-    }
-    .title {
-      background-color: $blue-deep;
-      margin: 0px;
-      color: #FFF !important;
-      border: 0px;
-    }
-  }
-  .friend-list {
-    flex: 4;
-
-    a {
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: none;
-    }
-    a:active {
-      text-decoration: none;
-    }
-    .item {
-      border: none;
-      background-color: #E3F5FD;
-    }
-  }
-  .find-friends {
-    flex: 0.4;
-    line-height: 3.5em;
-    padding: 1em;
-  }
   .tab-buttons {
     button {
       width: 33%;
@@ -149,16 +114,5 @@ $font-family: 'Open Sans', sans-serif;
     flex-direction: column;
     justify-content: center;
     height: 80%;
-  }
-  .list-invite-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-height: 50%;
-  }
-  ul.list-inset {
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: left;
   }
 }

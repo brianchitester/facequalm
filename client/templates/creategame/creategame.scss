@@ -1,4 +1,70 @@
-.creategame
+$mockup-blue: #a4c2f4;
+$calm: #a4c2f4;
+$blue-deep: #90CAF9;
+$font-family: 'Open Sans', sans-serif;
+
+.CreateGame
 {
-	
+  .friend-list {
+    flex: 4;
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    a:active {
+      text-decoration: none;
+    }
+    .item {
+      border: none;
+      background-color: #E3F5FD;
+    }
+  }
+  .find-friends {
+    flex: 0.4;
+    line-height: 3.5em;
+    padding: 1em;
+  }
+  .button-primary {
+    border-radius: 15px;
+    color: #FFF;
+    font-weight: 600;
+    width: 60%;
+    background-color: #90CAF9;
+    border: none;
+    align-self: center;
+  }
+  .button-primary.active {
+    background-color: #7CA6D6;
+  }
+  .button-primary:hover {
+    background-color: $mockup-blue;
+    color: #FFF;
+  }
+  .button-secondary {
+    border-radius: 15px;
+    color: #FFF;
+    background-color: #FCE850;
+    border: none;
+    width: 60%;
+  }
+  .button-secondary.active {
+    background-color: #FEC303;
+  }
+  .button-secondary:hover {
+    background-color: #FEC303;
+    color: #FFF;
+  }
+  .list-invite-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 50%;
+  }
+  ul.list-inset {
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: left;
+  }
 }

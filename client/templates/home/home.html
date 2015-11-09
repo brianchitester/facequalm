@@ -16,10 +16,7 @@
 
    <div class ="list-create-wrapper">
       {{> gameList}}
-
-        <button id="create-game" data-ion-modal="createGame" class="button button-large button-primary">
-          CREATE GAME
-        </button>
+      <a id="create-game" class="button button-large button-primary" href="{{pathFor route='createGame'}}">CREATE GAME</a>
   </div>
 
 	{{/ionContent}}
