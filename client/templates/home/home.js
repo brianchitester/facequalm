@@ -62,8 +62,8 @@ Template.gameList.helpers({
 });
 
 Template.gameList.events({
-    'click .button-small': function(e) {
-        Meteor.call('joinGame', $(e.currentTarget).attr('id'), function(error, results) {
+    'click #joinGame': function(e) {
+        Meteor.call('joinGame', $(e.currentTarget).attr('gameId'), function(error, results) {
             if (error) {
                 console.log(error);
             }

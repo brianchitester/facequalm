@@ -165,25 +165,16 @@ if (Meteor.isServer) {
         },
         //Adds the client's user to the game
         joinGame: function(gameId) {
-            var currentGame = Games.findOne({
-                _id: gameId,
-                userIds: {
-                    $nin: [this.userId]
-                }
-            });
+            var currentGame = Games.findOne({ _id: gameId });
             if (currentGame) {
-                currentGame.userIds.push(this.userId);
-                currentGame.userNames.push(Meteor.user().username);
-                Games.update({
-                    _id: gameId
-                }, currentGame);
-
-                Invites.remove({
-                    userId: this.userId,
-                    gameId: gameId
-                });
+                if (!_.contains(currentGame.userIds)) {
+                    currentGame.userIds.push(this.userId);
+                    currentGame.userNames.push(Meteor.user().username);
+                    Games.update({ _id: gameId }, currentGame);
+                    Invites.remove({ userId: this.userId, gameId: gameId });
+                }
             } else {
-                throw new Meteor.Error("game-not-found", 'Game Not Found', 'that game doesnt seem to exist');
+                throw new Meteor.Error("game-not-found", 'Game Not Found', 'Game does not exist or user is already in the game');
             }
         },
         leaveGame: function(gameId) {
