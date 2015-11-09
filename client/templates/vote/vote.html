@@ -13,7 +13,6 @@
 
   {{#ionView}}
     {{#ionContent}}
-
       <div class ="match-photo-wrapper">
         <div class="match-img-holder">
           <img class = "match-img" src="{{matchUrl}}">
@@ -62,7 +61,7 @@
     <div class="list card">
       {{#if imageSource}}
         <div class="item item-avatar">
-          {{> avatarimage}}
+          {{> avatarimage userName=(creatorUserName) }}
           <p>{{creatorUserName}}</p>
         </div>
 
@@ -70,11 +69,9 @@
           <img src="{{imageSource}}">
         </div>
         <button data-id="{{_id}}" class= "vote-button button-primary">VOTE</button>
-
-
       {{else}}
         <div class="item item-avatar">
-        {{> avatarimage}}
+        {{> avatarimage userName=(creatorUserName) }}
         <p>Waiting ({{creatorUserName}})</p>
       </div>
 

@@ -13,12 +13,6 @@ if (Meteor.isClient) {
                     return "Signed In";
                 }
             }
-        },
-        avatarUrl: function() {
-            var user = Meteor.user();
-            if (user && user.avatarUrl) {
-                return user.avatarUrl;
-            }
         }
     });
 }

@@ -66,20 +66,3 @@ Template.photo.events({
         });
     }
 });
-
-
-Template.newGame.events({
-    'click button': function() {
-        Meteor.call('newSession', Games.findOne()._id, function() {
-            Router.go('/upload/' + Games.findOne()._id);
-        });
-    }
-});
-
-Template.leaveGame.events({
-    'click button': function() {
-        Meteor.call('leaveGame', Games.findOne()._id, function() {
-            Router.go('/');
-        });
-    }
-});
