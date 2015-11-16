@@ -166,15 +166,14 @@ if (Meteor.isServer) {
         //Adds the client's user to the game
         joinGame: function(gameId) {
             var currentGame = Games.findOne({ _id: gameId });
-            if (currentGame) {
-                if (!_.contains(currentGame.userIds)) {
-                    currentGame.userIds.push(this.userId);
-                    currentGame.userNames.push(Meteor.user().username);
-                    Games.update({ _id: gameId }, currentGame);
-                    Invites.remove({ userId: this.userId, gameId: gameId });
-                }
-            } else {
+            var invite = Invites.findOne({ userId: this.userId, gameId: gameId });
+            if (!currentGame) {
                 throw new Meteor.Error("game-not-found", 'Game Not Found', 'Game does not exist or user is already in the game');
+            } else if (invite) {
+                currentGame.userIds.push(this.userId);
+                currentGame.userNames.push(Meteor.user().username);
+                Games.update({ _id: gameId }, currentGame);
+                Invites.remove({ userId: this.userId, gameId: gameId });
             }
         },
         leaveGame: function(gameId) {
