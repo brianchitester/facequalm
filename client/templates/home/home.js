@@ -41,7 +41,14 @@ Template.gameList.helpers({
         gameDep.depend();
         var selection = $('.active').attr('id');
         if (selection === 'active') {
-            return Games.find().fetch();
+
+            var gameList = Games.find().fetch();
+            
+            gameList.forEach((game) => {
+                game.dateCreated = computeTimeAllotted(game.dateCreated);
+            });
+            return gameList;
+
         } else {
             return Invites.find().fetch();
         }
@@ -66,3 +73,20 @@ Template.gameList.events({
         Router.go("/upload/" + $(e.target).attr("gameId"));
     }
 });
+
+var computeTimeAllotted = (date) => { 
+    var postTime = date;
+    var currentTime = new Date();
+
+    var timeDiff = currentTime - postTime;
+    var msec = timeDiff;
+    var dd = Math.floor(msec / 1000 / 60 / 60 / 24);
+    var hh = Math.floor(msec / 1000 / 60 / 60);
+    msec -= hh * 1000 * 60 * 60;
+    var mm = Math.floor(msec / 1000 / 60);
+    if (dd) {
+        return dd + " days ago"
+    } else {
+        return hh ? hh + " hours and " + mm + " minutes ago" : mm + " minutes ago";
+    }
+};

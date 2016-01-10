@@ -121,6 +121,7 @@ if (Meteor.isServer) {
                 creatorName: Meteor.user().username,
                 userIds: [userId],
                 userNames: [Meteor.user().username],
+                dateCreated: new Date(),
                 state: 1,
                 config: { 
                     numRounds: config.numRounds || 1,
