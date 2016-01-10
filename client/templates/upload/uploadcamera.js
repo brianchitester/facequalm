@@ -26,7 +26,7 @@ UploadCamera = {
     var video = document.querySelector("video");
     if (navigator.getUserMedia) {
         navigator.getUserMedia({video: true}, function(stream) {
-          Camera.localStreamTrack = stream.getVideoTracks()[0];  
+          UploadCamera.localStreamTrack = stream.getVideoTracks()[0];  
           video.src = window.URL.createObjectURL(stream);
         }, function(error) {
             console.log("getUserMedia failed");
@@ -40,7 +40,7 @@ UploadCamera = {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-    Camera.localStreamTrack.stop();
+    UploadCamera.localStreamTrack.stop();
     return canvas.toDataURL();
   },
 
