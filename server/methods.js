@@ -196,7 +196,8 @@ if (Meteor.isServer) {
                 creator: Meteor.userId,
                 creatorName: Meteor.user().username,
                 userId: friendId,
-                userName: friend.username
+                userName: friend.username,
+                dateCreated: new Date()
             });
         },
         //Takes game _id and url for user's to match

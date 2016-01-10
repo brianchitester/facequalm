@@ -50,7 +50,12 @@ Template.gameList.helpers({
             return gameList;
 
         } else {
-            return Invites.find().fetch();
+            var invitesList = Invites.find().fetch();
+            
+            invitesList.forEach((invite) => {
+                invite.dateCreated = computeTimeAllotted(invite.dateCreated);
+            });
+            return invitesList;
         }
     },
     pending: function() {
