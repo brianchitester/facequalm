@@ -2,7 +2,8 @@ if (Meteor.isServer) {
     //Server "helper" methods to call asynchronously from the client
     var faceIndex = -1;
     var getFaceUrl = function() {
-        var randomImages = ["10-reasons-denzel-washington-is-badass-561610606-may-11-2012-600x400.jpg",
+        var randomImages = [
+            "10-reasons-denzel-washington-is-badass-561610606-may-11-2012-600x400.jpg",
             "1292815989_eli.jpg",
             "1348717742_lil-wayne-strip-club-50k-dollar-bills-funny-faces-3.jpg",
             "270b9348571e7efd168669c6c781f412.jpg",
@@ -122,7 +123,7 @@ if (Meteor.isServer) {
                 userIds: [userId],
                 userNames: [Meteor.user().username],
                 state: 1,
-                config: { 
+                config: {
                     numRounds: config.numRounds || 1,
                     roundTime: config.roundTime || (60*60*24),
                     photoSet: config.photoSet || 1
@@ -275,5 +276,4 @@ if (Meteor.isServer) {
             }
         }
     });
-
 }
