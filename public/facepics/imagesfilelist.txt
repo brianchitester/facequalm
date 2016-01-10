@@ -36,4 +36,14 @@
 "rexfeatures_1822822ag.jpg",
 "s-KANYE-WEST-DOESNT-SMILE-large.jpg",
 "sport-smile-7.jpg",
-"tumblr_m5zd0xnZ8Q1qzy531o1_500.jpg"]
+"tumblr_m5zd0xnZ8Q1qzy531o1_500.jpg",
+"Beaker.jpg",
+"Danny-Alexander.jpg",
+"kate0.jpg",
+"kate1.jpg",
+"kate2.jpg",
+"Kate-Middleton-Making-Silly-Faces-Video.jpg",
+"mckayla-maroney-facial-expression-1481944720.jpg",
+"robert-downey-jr-funny-face-hd-wallpaper.jpg",
+"5f8bab725138c77ca07264c27d1347c2.jpg",
+"808865529.jpg"]
