@@ -46,12 +46,14 @@
           <a class ="enter-game" id ="{{_id}}">
             {{#ionItem iconLeft=true id="my-id"}}
                 <h3>{{creatorName}}'s game</h3>
+                <p>{{dateCreated}}</p>
                 {{> ionIcon icon="ios-camera" }}
               {{/ionItem}}
             </a>
             {{else}}
               {{#ionItem iconLeft=true buttonRight=true id="my-id"}}
                 <h3>{{creatorName}}'s game</h3>
+                <p>{{dateCreated}}</p>
                 {{> ionIcon icon="ios-help" }}
                 <button class="button button-small button-primary-small" id="joinGame" gameId="{{gameId}}">Accept</button>
               {{/ionItem}}

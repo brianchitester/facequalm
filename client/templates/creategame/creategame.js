@@ -35,20 +35,34 @@ Template.createGame.events({
         numRoundsDep.changed();
     },
     'click #find-friends': function() {
-        IonPopup.prompt({
+        IonPopup.show({
             title: 'Add Friend',
             okType: 'button-calm',
-            inputPlaceholder: 'Enter username',
-            onOk: function(e, username) {
-                Meteor.call('addFriend', username, function(error, results) {
-                    if (error) {
-                        IonPopup.alert({
-                            title: 'Error',
-                            template: error
-                        });
-                    }
-                });
-            }
+            template: '<input id=findUser type=text value="Enter username"></input><div id="add-friend-error-message" style="margin-top: 10px; color: red;"></div>',
+            buttons: [{ 
+                text: 'Cancel',
+                type: 'button-default',
+                onTap: function(e) {
+                  return true;
+                }
+            }, {
+                text: 'OK',
+                type: 'button-positive',
+                onTap: function(e) {
+                    username = $("#findUser").val();
+                    Meteor.call('addFriend', username, function(error, results) {
+                        if (error) {
+                            e.preventDefault();
+                            $("#add-friend-error-message").html("User does not exist.");
+                            return false;
+                        }
+                        else {
+                            IonPopup.close();
+                            return true;
+                        } 
+                    });
+                }
+            }]
         });
     }
 });
