@@ -78,8 +78,6 @@ Template.gameList.events({
         Router.go("/upload/" + $(e.target).attr("gameId"));
     }
 });
-<<<<<<< HEAD
-=======
 
 var computeTimeAllotted = (date) => { 
     var postTime = date;
@@ -97,4 +95,3 @@ var computeTimeAllotted = (date) => {
         return hh ? hh + " hours and " + mm + " minutes ago" : mm + " minutes ago";
     }
 };
->>>>>>> upstream/dev
